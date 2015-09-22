@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--
+        This project will contain all code related to Mobile business - Service classes
+     -->
+    <parent>
+        <groupId>com.polyglot.mobile</groupId>
+        <artifactId>mobile-parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../mobile-parent/pom.xml</relativePath>
+    </parent>
+
+    <artifactId>mobile-business</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>mobile-business</name>
+    <description>Mobile Business</description>
+
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.polyglot.mobile</groupId>
+            <artifactId>mobile-persistence</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!-- TEST DEPENDENCIES -->
+        <dependency>
+            <groupId>com.polyglot.mobile</groupId>
+            <artifactId>mobile-test-support</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>
