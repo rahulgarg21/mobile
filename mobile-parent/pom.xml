@@ -30,10 +30,12 @@
         <commons.lang3.version>3.4</commons.lang3.version>
         <google.guava.version>18.0</google.guava.version>
         <joda.time.version>2.8.2</joda.time.version>
+        <jadira.usertype.version>4.0.0.GA</jadira.usertype.version>
         <h2.database.version>1.4.189</h2.database.version>
         <hikariCP.version>2.4.1</hikariCP.version>
         <hibernate.entitymanager.version>5.0.1.Final</hibernate.entitymanager.version>
         <hibernate.validator>5.2.1.Final</hibernate.validator>
+        <validation.api.verion>1.1.0.Final</validation.api.verion>
         <jackson.version>2.6.2</jackson.version>
         <jstl.version>1.2</jstl.version>
         <!--TESTING DEPENDENCIES -->
@@ -200,7 +202,6 @@
                                 <logViolationsToConsole>false</logViolationsToConsole>
                                 <!-- BUILD FAIL ON CHECKSTYLE VIOLATION -->
                                 <failOnViolation>${checkstyle.failOnViolation}</failOnViolation>
-                                <linkXRef>false</linkXRef>
                                 <outputFile>${project.reporting.outputDirectory}/checkstyle</outputFile>
                             </configuration>
                             <goals>
@@ -287,6 +288,13 @@
                 <groupId>joda-time</groupId>
                 <artifactId>joda-time</artifactId>
                 <version>${joda.time.version}</version>
+            </dependency>
+
+            <!-- Adds support for Java 8 dates -->
+            <dependency>
+                <groupId>org.jadira.usertype</groupId>
+                <artifactId>usertype.extended</artifactId>
+                <version>${jadira.usertype.version}</version>
             </dependency>
 
             <!---SPRING FRAMEWORK -->
@@ -426,6 +434,11 @@
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-validator</artifactId>
                 <version>${hibernate.validator}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>${validation.api.verion}</version>
             </dependency>
 
             <!-- JACKSON JSON -->
