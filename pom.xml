@@ -14,7 +14,7 @@
     <packaging>pom</packaging>
 
     <name>mobile</name>
-    <description>This POM just act a wrapper for all Mobile POM Files</description>
+    <description>This POM just act a wrapper for all Mobile Modules</description>
 
     <modules>
         <module>mobile-parent</module>
@@ -25,5 +25,8 @@
         <module>mobile-web</module>
         <module>mobile-war</module>
     </modules>
+
+
+    <!--- DO NOT PUT ANY THING DEPENDENCIES OR CONFIG HERE. IT WILL NOT BE DEPLOYED. PROFILE BASED DEPLOYMENT ASSEMBLY IS IN WAR MODULE ONLY -->
 
 </project>
