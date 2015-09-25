@@ -57,7 +57,7 @@
         <!-- Checks correct indentation of Java Code. -->
         <module name="Indentation">
             <!-- how many spaces to use for new indentation level -->
-            <property name="basicOffset" value="2" />
+            <property name="basicOffset" value="2"/>
             <!-- how far brace should be indented when on next line -->
             <property name="braceAdjustment" value="0"/>
             <!-- how much to indent a case label -->
@@ -66,9 +66,9 @@
         <!-- Specify method parameters code conventions -->
         <module name="MethodParamPad">
             <!-- Whitespace is required after method name -->
-            <property name="option" value="space" />
+            <property name="option" value="space"/>
             <!-- Check only methods and constructors declarations -->
-            <property name="tokens" value="METHOD_DEF, CTOR_DEF" />
+            <property name="tokens" value="METHOD_DEF, CTOR_DEF"/>
         </module>
         <!-- Checks the policy on the padding of parentheses; i.e. whether a space is required after a left parenthesis and before a
            right parenthesis, or such spaces are forbidden. -->

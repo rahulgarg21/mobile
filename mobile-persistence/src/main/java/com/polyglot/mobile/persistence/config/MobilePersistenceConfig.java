@@ -1,5 +1,6 @@
 package com.polyglot.mobile.persistence.config;
 
+import com.polyglot.mobile.common.config.MobileCommonConfig;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,7 +27,7 @@ import java.util.Properties;
         "com.polyglot.mobile.persistence.repository"
 })
 @EnableSpringDataWebSupport
-@Import(value = {MobileJpaAuditingConfig.class})
+@Import(value = {MobileJpaAuditingConfig.class, MobileCommonConfig.class})
 public class MobilePersistenceConfig {
 
     /**
@@ -41,12 +42,11 @@ public class MobilePersistenceConfig {
     private static final String PROPERTY_NAME_HIBERNATE_SHOW_SQL = "hibernate.show_sql";
 
 
-
     @Bean(destroyMethod = "close")
     public DataSource dataSource(@Value("${db.driver}") final String dbDriver,
-                          @Value("${db.url") final String dbUrl,
-                          @Value("${db.username}") final String dbUserName,
-                          @Value("${db.password}") final String dbPassword ) {
+                                 @Value("${db.url}") final String dbUrl,
+                                 @Value("${db.username}") final String dbUserName,
+                                 @Value("${db.password}") final String dbPassword) {
         HikariConfig dataSourceConfig = new HikariConfig();
         dataSourceConfig.setDriverClassName(dbDriver);
         dataSourceConfig.setJdbcUrl(dbUrl);
@@ -57,11 +57,11 @@ public class MobilePersistenceConfig {
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(final DataSource dataSource,
-                                                                @Value("${hibernate.dialect}") final String hibernateDialect,
-                                                                @Value("${hibernate.format_sql}") final Boolean hibernateFormatSql,
-                                                                @Value("${hibernate.hbm2ddl.auto}") final String hibernateHbm2ddl,
-                                                                @Value("${hibernate.ejb.naming_strategy}") final String hibernateNamingStrategy,
-                                                                @Value("${hibernate.show_sql}") final Boolean hibernateShowSql) {
+                                                                       @Value("${hibernate.dialect}") final String hibernateDialect,
+                                                                       @Value("${hibernate.format_sql}") final Boolean hibernateFormatSql,
+                                                                       @Value("${hibernate.hbm2ddl.auto}") final String hibernateHbm2ddl,
+                                                                       @Value("${hibernate.ejb.naming_strategy}") final String hibernateNamingStrategy,
+                                                                       @Value("${hibernate.show_sql}") final Boolean hibernateShowSql) {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource);
         entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());

@@ -21,7 +21,7 @@ public class SpringSecurityAuditorAwareImpl implements AuditorAware<String> {
 
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        if(authentication == null || !authentication.isAuthenticated()) {
+        if (authentication == null || !authentication.isAuthenticated()) {
             LOGGER.warn("Cannot determine authenticaed user name");
             return null;
         }
