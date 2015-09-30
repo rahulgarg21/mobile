@@ -17,3 +17,9 @@
 # Maven
 target/
 
+
+#eclipse
+.project
+*.project/
+*.settings/
+

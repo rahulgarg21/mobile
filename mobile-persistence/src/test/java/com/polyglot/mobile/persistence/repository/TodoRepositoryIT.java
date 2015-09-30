@@ -1,8 +1,12 @@
 package com.polyglot.mobile.persistence.repository;
 
 import com.polyglot.mobile.persistence.common.BaseMobilePersistenceIT;
-import com.polyglot.mobile.persistence.entity.Todo;
+import com.polyglot.mobile.persistence.common.MobileEnvironment;
+import com.polyglot.mobile.persistence.entity.EnvironmentEntity;
+import org.junit.Assert;
 import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.is;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -13,20 +17,22 @@ import java.util.List;
 public class TodoRepositoryIT extends BaseMobilePersistenceIT {
 
     @Resource
-    private TodoRepository todoRepository;
+    private EnvironmentRepository environmentRepository;
 
     @Test
     public void testFindByTitle() throws Exception {
 
-        String testTitle = "TestTitle";
-        String testDescription = "TestDescription";
+        EnvironmentEntity environmentEntity = new EnvironmentEntity(MobileEnvironment.COMMON,"Common EnvironmentEntity");
 
-        Todo todo = Todo.create().setTitle(testTitle).setDescription(testDescription).build();
+        long existingEnvironmentsCount = environmentRepository.count();
+        Assert.assertThat("There should be no Environment Entity before the test",existingEnvironmentsCount, is(0L));
+        //Save environment entity in database
+        EnvironmentEntity savedEntity = environmentRepository.save(environmentEntity);
+        //Fetch it back from database
+        List<EnvironmentEntity> mobileEnvironmentEntities = environmentRepository.findByName(MobileEnvironment.COMMON);
+        Assert.assertThat(mobileEnvironmentEntities.size(), is(1));
+        Assert.assertTrue("Saved and fetched Environment Entity must be same", environmentEntity.equals(mobileEnvironmentEntities.get(0)));
 
-        long existingTodos = todoRepository.count();
-        Todo savedEntity = todoRepository.save(todo);
-        List<Todo> todos = todoRepository.findByTitle(testTitle);
-
-        System.out.println(todos);
+        System.out.println(mobileEnvironmentEntities);
     }
 }

@@ -7,8 +7,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.web.config.EnableSpringDataWebSupport;
+import org.springframework.jdbc.datasource.init.DatabasePopulator;
+import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
+import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -52,7 +56,9 @@ public class MobilePersistenceConfig {
         dataSourceConfig.setJdbcUrl(dbUrl);
         dataSourceConfig.setUsername(dbUserName);
         dataSourceConfig.setPassword(dbPassword);
-        return new HikariDataSource(dataSourceConfig);
+        HikariDataSource hikariDataSource = new HikariDataSource(dataSourceConfig);
+        DatabasePopulatorUtils.execute(databasePopulator(),hikariDataSource);
+        return hikariDataSource;
     }
 
     @Bean
@@ -81,6 +87,13 @@ public class MobilePersistenceConfig {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory);
         return transactionManager;
+    }
+
+    private DatabasePopulator databasePopulator() {
+        final ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
+        databasePopulator.setContinueOnError(false);
+        databasePopulator.addScript(new ClassPathResource("/META-INF/sql/config.sql"));
+        return databasePopulator;
     }
 
 }
