@@ -1,6 +1,7 @@
 package com.polyglot.mobile.testsupport.integrationtest;
 
 import com.polyglot.mobile.testsupport.config.MobileTestSupportConfig;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.runner.RunWith;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ActiveProfiles;
@@ -18,7 +19,7 @@ import org.springframework.test.context.transaction.TransactionalTestExecutionLi
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {MobileTestSupportConfig.class})
-@ActiveProfiles("integration-test")
+@ActiveProfiles({"DEV","integration-test"})
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class, TransactionalTestExecutionListener.class})
 @Rollback(value = true)
 public abstract class BaseMobileIntegrationTest {

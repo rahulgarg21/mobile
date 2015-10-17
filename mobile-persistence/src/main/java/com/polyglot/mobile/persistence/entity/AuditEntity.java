@@ -1,5 +1,6 @@
 package com.polyglot.mobile.persistence.entity;
 
+import com.polyglot.mobile.common.entity.BaseMobileEntity;
 import lombok.Getter;
 import lombok.ToString;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -19,7 +20,7 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 @Getter
 @ToString
-public abstract class AuditEntity {
+public abstract class AuditEntity implements BaseMobileEntity{
 
     @Column(name = "CREATED_BY_USER", nullable = false)
     @CreatedBy

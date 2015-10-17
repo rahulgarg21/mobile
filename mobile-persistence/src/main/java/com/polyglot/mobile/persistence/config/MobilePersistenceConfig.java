@@ -44,6 +44,9 @@ public class MobilePersistenceConfig {
     private static final String PROPERTY_NAME_HIBERNATE_HBM2DDL_AUTO = "hibernate.hbm2ddl.auto";
     private static final String PROPERTY_NAME_HIBERNATE_NAMING_STRATEGY = "hibernate.ejb.naming_strategy";
     private static final String PROPERTY_NAME_HIBERNATE_SHOW_SQL = "hibernate.show_sql";
+    private static final String PROPERTY_NAME_HIBERNATE_USE_SECOND_LEVEL_CACHE = "hibernate.cache.use_second_level_cache";
+    private static final String PROPERTY_NAME_HIBERNATE_USE_QUERY_CACHE = "hibernate.cache.use_query_cache";
+    private static final String PROPERTY_NAME_HIBERNATE_CACHE_REGION_FACTORY_CLASS = "hibernate.cache.region.factory_class";
 
 
     @Bean(destroyMethod = "close")
@@ -67,7 +70,10 @@ public class MobilePersistenceConfig {
                                                                        @Value("${hibernate.format_sql}") final Boolean hibernateFormatSql,
                                                                        @Value("${hibernate.hbm2ddl.auto}") final String hibernateHbm2ddl,
                                                                        @Value("${hibernate.ejb.naming_strategy}") final String hibernateNamingStrategy,
-                                                                       @Value("${hibernate.show_sql}") final Boolean hibernateShowSql) {
+                                                                       @Value("${hibernate.show_sql}") final Boolean hibernateShowSql,
+                                                                       @Value("${hibernate.cache.use_second_level_cache:false}") final Boolean useSecondLevelCache,
+                                                                       @Value("${hibernate.cache.use_query_cache:false}") final Boolean useQueryCache,
+                                                                       @Value("${hibernate.cache.region.factory_class}") final String cacheFactoryClass) {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource);
         entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
@@ -78,6 +84,9 @@ public class MobilePersistenceConfig {
         jpaProperties.put(PROPERTY_NAME_HIBERNATE_NAMING_STRATEGY, hibernateNamingStrategy);
         jpaProperties.put(PROPERTY_NAME_HIBERNATE_SHOW_SQL, hibernateShowSql);
         jpaProperties.put(PROPERTY_NAME_HIBERNATE_FORMAT_SQL, hibernateFormatSql);
+        jpaProperties.put(PROPERTY_NAME_HIBERNATE_USE_SECOND_LEVEL_CACHE, useSecondLevelCache);
+        jpaProperties.put(PROPERTY_NAME_HIBERNATE_USE_QUERY_CACHE, useQueryCache);
+        jpaProperties.put(PROPERTY_NAME_HIBERNATE_CACHE_REGION_FACTORY_CLASS,cacheFactoryClass);
         entityManagerFactoryBean.setJpaProperties(jpaProperties);
         return entityManagerFactoryBean;
     }
@@ -93,6 +102,7 @@ public class MobilePersistenceConfig {
         final ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
         databasePopulator.setContinueOnError(false);
         databasePopulator.addScript(new ClassPathResource("/META-INF/sql/config.sql"));
+        databasePopulator.addScript(new ClassPathResource("/META-INF/sql/propertiesData.sql"));
         return databasePopulator;
     }
 

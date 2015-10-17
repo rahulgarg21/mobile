@@ -95,6 +95,12 @@
             <artifactId>javax.el-api</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-ehcache</artifactId>
+        </dependency>
+
+
         <!-- TEST DEPENDENCIES -->
         <dependency>
             <groupId>com.polyglot.mobile</groupId>
