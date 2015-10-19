@@ -6,7 +6,6 @@ import org.springframework.jmx.export.annotation.ManagedResource;
 /**
  * Created by Rajiv Singla on 10/7/2015.
  */
-@ManagedResource(objectName = "MobileContants")
 public class MobileConstants {
 
     public static final AppEnvironment DEFAULT_PROPS_ENVIRONMENT = AppEnvironment.COMMON;
@@ -18,6 +17,8 @@ public class MobileConstants {
             " FROM CONFIG.APP_PROPERTIES AP " +
             " JOIN CONFIG.APP_ENVIRONMENT AE ON AE.APP_ENVIRONMENT_ID  = AP.APP_ENVIRONMENT_ID " +
             " ORDER BY AP.APP_PROPERTY_KEY";
+
+    public static final String JMX_PREFIX = "Mobile:name";
 
 
 }

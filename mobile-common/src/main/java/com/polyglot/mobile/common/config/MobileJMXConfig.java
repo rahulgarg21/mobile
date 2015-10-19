@@ -1,7 +1,12 @@
 package com.polyglot.mobile.common.config;
 
+import com.google.common.collect.ImmutableMap;
+import com.polyglot.mobile.common.MobileConstants;
+import net.sf.ehcache.management.ManagementService;
+import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.jmx.export.MBeanExporter;
 import org.springframework.jmx.export.annotation.AnnotationJmxAttributeSource;
 import org.springframework.jmx.export.assembler.MetadataMBeanInfoAssembler;
@@ -13,6 +18,11 @@ import org.springframework.jmx.support.RegistrationPolicy;
 
 import javax.management.MBeanServer;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.polyglot.mobile.common.MobileConstants.JMX_PREFIX;
+
 /**
  * Created by Rajiv Singla on 10/1/2015.
  */
@@ -22,14 +32,16 @@ public class MobileJMXConfig {
 
 
     @Bean
-    public MBeanExporter mBeanExporter(final MBeanServer mBeanServer,final ObjectNamingStrategy namingStrategy,
-                                       final MetadataMBeanInfoAssembler metadataMBeanInfoAssembler) {
+    @Lazy(value = false)
+    public MBeanExporter mobileMBeanExporter(final MBeanServer mBeanServer, final ObjectNamingStrategy namingStrategy,
+                                             final MetadataMBeanInfoAssembler metadataMBeanInfoAssembler,
+                                             final EhCacheManagerFactoryBean ehCacheManagerFactoryBean) {
         final MBeanExporter mBeanExporter = new MBeanExporter();
         mBeanExporter.setServer(mBeanServer);
         mBeanExporter.setAutodetect(true);
         mBeanExporter.setNamingStrategy(namingStrategy);
         mBeanExporter.setAssembler(metadataMBeanInfoAssembler);
-        mBeanExporter.setRegistrationPolicy(RegistrationPolicy.IGNORE_EXISTING);
+        mBeanExporter.setRegistrationPolicy(RegistrationPolicy.REPLACE_EXISTING);
         return mBeanExporter;
     }
 

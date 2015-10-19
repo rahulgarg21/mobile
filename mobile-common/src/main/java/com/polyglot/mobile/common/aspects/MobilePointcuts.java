@@ -7,7 +7,7 @@ import org.aspectj.lang.annotation.Pointcut;
  */
 public class MobilePointcuts {
 
-    @Pointcut("execution(public * *(..))")
+    @Pointcut("execution(public com.polyglot.mobile.common.appconfig.impl.* *(..))")
     public void anyPublicOperation() {}
 
     @Pointcut("within(com.polyglot.mobile..*)")

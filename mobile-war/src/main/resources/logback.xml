@@ -2,6 +2,9 @@
 
 <configuration debug="true" scan="true" scanPeriod="30 seconds">
 
+    <contextName>Mobile</contextName>
+    <jmxConfigurator />
+
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n</pattern>
