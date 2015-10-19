@@ -2,12 +2,8 @@ package com.polyglot.mobile.persistence.entity;
 
 import com.polyglot.mobile.common.AppEnvironment;
 import lombok.*;
-import org.hibernate.annotations.*;
-import org.hibernate.annotations.Cache;
 
 import javax.persistence.*;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.util.Set;
 
 /**
@@ -20,7 +16,6 @@ import java.util.Set;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @ToString(callSuper = false)
-@Cache(usage = CacheConcurrencyStrategy.READ_ONLY, region = "appEnvironments")
 public class AppEnvironmentEntity extends AuditEntity {
 
     @Id

@@ -22,14 +22,27 @@
     <name>mobile-war</name>
     <description>Mobile War</description>
 
-
     <dependencies>
-
         <dependency>
             <groupId>com.polyglot.mobile</groupId>
-            <artifactId>mobile-business</artifactId>
+            <artifactId>mobile-web</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+
 
         <!-- TEST DEPENDENCIES -->
         <dependency>
@@ -39,5 +52,101 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- MOBILE PROFILES SETUP -->
+
+    <profiles>
+
+        <!-- DEV PROFILE , ACTIVE BY DEFAULT -->
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <build.profile.id>dev</build.profile.id>
+            </properties>
+
+            <!--THIS FILTERING WILL REPLACE ALL PLACEHOLDERS IN SRC/MAIN/RESOURCES XML AND PROPERTIES FILES
+            WITH ENV SPECIFIC SETTINGS IN FILTERS/PROFILES/DEV/APP.PROPERTIES-->
+            <build>
+                <filters>
+                    <filter>filters/profiles/${build.profile.id}/app.properties</filter>
+                </filters>
+                <resources>
+                    <resource>
+                        <filtering>true</filtering>
+                        <directory>src/main/resources</directory>
+                        <includes>
+                            <include>**/*.xml</include>
+                            <include>**/*.properties</include>
+                        </includes>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+
+        <!-- QA PROFILE -->
+        <profile>
+            <id>qa</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <build.profile.id>qa</build.profile.id>
+            </properties>
+            <build>
+                <filters>
+                    <filter>filters/profiles/${build.profile.id}/app.properties</filter>
+                </filters>
+                <resources>
+                    <resource>
+                        <filtering>true</filtering>
+                        <directory>src/main/resources</directory>
+                        <includes>
+                            <include>**/*.xml</include>
+                            <include>**/*.properties</include>
+                        </includes>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+
+        <!-- PROD PROFILE -->
+        <profile>
+            <id>prod</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <build.profile.id>prod</build.profile.id>
+            </properties>
+            <build>
+                <filters>
+                    <filter>filters/profiles/${build.profile.id}/app.properties</filter>
+                </filters>
+                <resources>
+                    <resource>
+                        <filtering>true</filtering>
+                        <directory>src/main/resources</directory>
+                        <includes>
+                            <include>**/*.xml</include>
+                            <include>**/*.properties</include>
+                        </includes>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+
+    </profiles>
 
 </project>

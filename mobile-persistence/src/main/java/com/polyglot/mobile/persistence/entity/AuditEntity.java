@@ -3,7 +3,6 @@ package com.polyglot.mobile.persistence.entity;
 import com.polyglot.mobile.common.entity.BaseMobileEntity;
 import lombok.Getter;
 import lombok.ToString;
-import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;

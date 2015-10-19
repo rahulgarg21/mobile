@@ -10,7 +10,7 @@ import com.polyglot.mobile.common.util.spring.JdbcPropertySource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.env.PropertySource;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.util.StopWatch;
+import org.springframework.jdbc.core.RowMapper;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
@@ -19,8 +19,8 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import static com.google.common.base.Preconditions.checkState;
-import static com.polyglot.mobile.common.MobileConstants.*;
-import static com.polyglot.mobile.common.MobileConstants.PROPS_QUERY_STRING;
+import static com.polyglot.mobile.common.MobileConstants.DEFAULT_PROPS_ENVIRONMENT;
+import static com.polyglot.mobile.common.MobileConstants.PROPS_CACHE_DURATION_SECONDS;
 
 /**
  * Created by Rajiv Singla on 10/7/2015.
@@ -46,11 +46,18 @@ public class JdbcPropertySourceImpl extends PropertySource<DataSource> implement
 
     private final AppEnvironment currentAppEnvironment;
     private final DataSource dataSource;
+    private final String jdbcQueryString;
+    private final RowMapper<JdbcPropertyEntity> jdbcPropertyEntityRowMapper;
 
-    public JdbcPropertySourceImpl(final DataSource dataSource, final AppEnvironment appEnvironment) {
+    public JdbcPropertySourceImpl(final DataSource dataSource,
+                                  final AppEnvironment appEnvironment,
+                                  final String jdbcQueryString,
+                                  final RowMapper<JdbcPropertyEntity> jdbcPropertyEntityRowMapper) {
         super("jdbcPropertySource", dataSource);
         this.currentAppEnvironment = appEnvironment;
         this.dataSource = dataSource;
+        this.jdbcQueryString = jdbcQueryString;
+        this.jdbcPropertyEntityRowMapper = jdbcPropertyEntityRowMapper;
         loadPropertyCache();
     }
 
@@ -86,7 +93,7 @@ public class JdbcPropertySourceImpl extends PropertySource<DataSource> implement
                 log.debug("Starting Properties Cache Loading");
                 final JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
                 final List<JdbcPropertyEntity> jdbcPropertyEntityList =
-                        jdbcTemplate.query(PROPS_QUERY_STRING, new JdbcPropertyEntityRowMapper());
+                        jdbcTemplate.query(jdbcQueryString, jdbcPropertyEntityRowMapper);
                 for (JdbcPropertyEntity jdbcPropertyEntity : jdbcPropertyEntityList) {
                     final AppEnvironment dbAppEnvironment = jdbcPropertyEntity.getAppEnvironment();
                     final Map<String, String> cachedAppEnvironmentProps = propertyCache.getIfPresent(dbAppEnvironment);

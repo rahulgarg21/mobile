@@ -1,6 +1,5 @@
 package com.polyglot.mobile.common.config;
 
-import com.polyglot.mobile.testsupport.config.MobileTestSupportConfig;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 

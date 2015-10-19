@@ -1,8 +1,12 @@
 package com.polyglot.mobile.common;
 
+import org.springframework.jmx.export.annotation.ManagedAttribute;
+import org.springframework.jmx.export.annotation.ManagedResource;
+
 /**
  * Created by Rajiv Singla on 10/7/2015.
  */
+@ManagedResource(objectName = "MobileContants")
 public class MobileConstants {
 
     public static final AppEnvironment DEFAULT_PROPS_ENVIRONMENT = AppEnvironment.COMMON;

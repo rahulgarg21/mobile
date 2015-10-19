@@ -2,19 +2,77 @@
 <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ehcache.xsd"
          updateCheck="true" monitoring="autodetect" dynamicConfig="true">
 
-    <diskStore path="java.io.tmpdir/ehcache"/>
-
-    <defaultCache maxEntriesLocalHeap="10000" eternal="false" timeToIdleSeconds="10" timeToLiveSeconds="10"
-                  diskSpoolBufferSizeMB="20" maxEntriesLocalDisk="100000" diskExpiryThreadIntervalSeconds="120"
-                  memoryStoreEvictionPolicy="LRU" transactionalMode="off" statistics="true">
-        <persistence strategy="localTempSwap"/>
-    </defaultCache>
 
     <!--
-    <cache name="appEnvironments" />
-    <cache name="appProperties" />
-    <cache name="org.hibernate.cache.internal.StandardQueryCache"/>
-    <cache name="org.hibernate.cache.spi.UpdateTimestampsCache"/>
+
+    maxEntriesLocalDisk –
+           The maximum sum total number of elements (cache entries) allowed on the disk tier for a cache.
+           If this target is exceeded, eviction occurs to bring the count within the allowed target.
+           The default value is 0, which means no eviction takes place (infinite size is allowed).
+           A seing of 0 means that no eviction of the cache's entries takes place, and consequently
+           can cause the node to run out of disk space.
+
+    eternal -
+                If the cache's eternal flag is set, it overrides any finite TTI/TTL values that have been set.
+                Individual cache elements may also be set to eternal. Eternal elements and caches do not expire, however
+                they may be evicted
+
+   timeToLiveSeconds -
+                  The maximum number of seconds an element can exist in the cache regardless of use.
+                  The element expires at this limit and will no longer be returned from the cache.
+                  The default value is 0, which means no timeToLive (TTL) eviction takes place (infinite lifetime).
+
+    timeToIdleSeconds -
+                The maximum number of seconds an element can exist in the cache without being accessed.
+                The element expires at this limit and will no longer be returned from the cache.
+                The default value is 0, which means no timeToIdle (TTI) eviction takes place (infinite lifetime).
+
+    memoryStoreEvictionPolicy -
+                MemoryStoreEvictionPolicy aribute specified in the configuration file. Legal values are
+                LRU (default), LFU and FIFO:
+
+            Least Recently Used (LRU)—LRU is the default seing. The last-used timestamp is
+            updated when an element is put into the cache or an element is retrieved from the
+            cache with a get call.
+
+            Least Frequently Used (LFU) —For each get call on the element the number of hits is
+            updated. When a put call is made for a new element (and assuming that the max
+            limit is reached for the memory store) the element with least number of hits, the Less
+            Frequently Used element, is evicted.
+
+            First In First Out (FIFO) — Elements are evicted in the same order as they come in.
+            When a put call is made for a new element (and assuming that the max limit is
+            reached for the memory store) the element that was placed first (First-In) in the store
+            is the candidate for eviction (First-Out).
     -->
+
+
+    <defaultCache
+            maxEntriesLocalHeap="10000"
+            eternal="false"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="120"
+            memoryStoreEvictionPolicy="LRU"
+            statistics="true">
+    </defaultCache>
+
+
+    <cache name="appEnvironments"
+           maxEntriesLocalHeap="10000"
+           eternal="false"
+           timeToIdleSeconds="120"
+           timeToLiveSeconds="120"
+           memoryStoreEvictionPolicy="LRU"
+           statistics="true">
+    </cache>
+
+    <cache name="appProperties"
+           maxEntriesLocalHeap="10000"
+           eternal="false"
+           timeToIdleSeconds="120"
+           timeToLiveSeconds="120"
+           memoryStoreEvictionPolicy="LRU"
+           statistics="true">
+    </cache>
 
 </ehcache>

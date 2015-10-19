@@ -2,6 +2,7 @@ package com.polyglot.mobile.common.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -9,8 +10,6 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.lang.reflect.Method;
 import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * Created by Rajiv Singla on 10/4/2015.
@@ -21,6 +20,7 @@ import java.util.concurrent.Executors;
 public class MobileAsyncConfig implements AsyncConfigurer{
 
     @Override
+    @Bean
     public Executor getAsyncExecutor() {
         final ThreadPoolTaskExecutor threadPoolTaskExecutor = new ThreadPoolTaskExecutor();
         threadPoolTaskExecutor.setCorePoolSize(7);
@@ -28,10 +28,11 @@ public class MobileAsyncConfig implements AsyncConfigurer{
         threadPoolTaskExecutor.setQueueCapacity(11);
         threadPoolTaskExecutor.setThreadNamePrefix("MobileAysncExectuor-");
         threadPoolTaskExecutor.initialize();
-        return null;
+        return threadPoolTaskExecutor;
     }
 
     @Override
+    @Bean
     public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
         return new AsyncUncaughtExceptionHandler() {
             @Override

@@ -1,7 +1,5 @@
 package com.polyglot.mobile.common.exception;
 
-import com.polyglot.mobile.common.AppEnvironment;
-
 /**
  * Created by Rajiv Singla on 10/7/2015.
  */

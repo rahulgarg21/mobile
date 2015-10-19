@@ -3,7 +3,6 @@ package com.polyglot.mobile.common.util.spring.impl;
 import com.google.common.base.Preconditions;
 import com.polyglot.mobile.common.AppEnvironment;
 import com.polyglot.mobile.common.exception.InvalidAppEnvironmentException;
-import com.polyglot.mobile.common.util.spring.impl.JdbcPropertyEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.RowMapper;
 

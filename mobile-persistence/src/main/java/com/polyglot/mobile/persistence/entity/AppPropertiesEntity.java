@@ -1,8 +1,6 @@
 package com.polyglot.mobile.persistence.entity;
 
 import lombok.*;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 
@@ -17,7 +15,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @ToString(callSuper = false)
-@Cache(usage = CacheConcurrencyStrategy.READ_ONLY, region = "appProperties")
 public class AppPropertiesEntity extends AuditEntity {
 
     @Id

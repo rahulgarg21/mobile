@@ -1,54 +1,51 @@
 package com.polyglot.mobile.common.config;
 
-import net.sf.ehcache.management.ManagementService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.CachingConfigurer;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.ehcache.EhCacheCacheManager;
-import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
+import org.springframework.cache.interceptor.*;
 import org.springframework.cache.support.CompositeCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.context.annotation.Primary;
-import org.springframework.core.io.ClassPathResource;
-
-import javax.management.MBeanServer;
 
 /**
  * Created by Rajiv Singla on 10/1/2015.
  */
 @Configuration
 @EnableCaching
-@Import(value = {MobileJMXConfig.class, MobileAsyncConfig.class})
-public class MobileCachingConfig {
+@Import(value = {MobileEhCacheConfig.class})
+public class MobileCachingConfig implements CachingConfigurer {
 
+    @Autowired(required = true)
+    @Qualifier("ehCacheCacheManager")
+    private CacheManager ehCacheCacheManager;
+
+    @Override
     @Bean
-    @Primary
-    public CacheManager compositeCacheManager(final EhCacheCacheManager ehCacheCacheManager) {
+    public CacheManager cacheManager() {
         final CompositeCacheManager compositeCacheManager = new CompositeCacheManager(ehCacheCacheManager);
+        compositeCacheManager.setFallbackToNoOpCache(false);
         return compositeCacheManager;
     }
 
+    @Override
     @Bean
-    public EhCacheCacheManager ehCacheCacheManager(final EhCacheManagerFactoryBean ehCacheManagerFactoryBean) {
-        return new EhCacheCacheManager(ehCacheManagerFactoryBean.getObject());
+    public CacheResolver cacheResolver() {
+        return new SimpleCacheResolver(cacheManager());
     }
 
+    @Override
     @Bean
-    public EhCacheManagerFactoryBean ehCacheManagerFactoryBean() {
-        final EhCacheManagerFactoryBean ehCacheManagerFactoryBean = new EhCacheManagerFactoryBean();
-        ehCacheManagerFactoryBean.setConfigLocation(new ClassPathResource("META-INF/cache/ehcache.xml"));
-        ehCacheManagerFactoryBean.setShared(true);
-        ehCacheManagerFactoryBean.afterPropertiesSet();
-        return ehCacheManagerFactoryBean;
+    public KeyGenerator keyGenerator() {
+        return new SimpleKeyGenerator();
     }
 
-    @Bean(initMethod = "init",destroyMethod = "dispose")
-    public ManagementService managementService(final net.sf.ehcache.CacheManager  ehCacheManager, MBeanServer mBeanServer) {
-        final ManagementService managementService = new ManagementService(ehCacheManager,mBeanServer,true,true,true,true);
-        return managementService;
+    @Override
+    @Bean
+    public CacheErrorHandler errorHandler() {
+        return new SimpleCacheErrorHandler();
     }
-
-
-
 }

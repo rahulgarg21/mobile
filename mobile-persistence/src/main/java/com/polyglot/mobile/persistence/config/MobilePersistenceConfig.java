@@ -7,12 +7,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.web.config.EnableSpringDataWebSupport;
-import org.springframework.jdbc.datasource.init.DatabasePopulator;
-import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
-import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -27,9 +23,7 @@ import java.util.Properties;
  */
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = {
-        "com.polyglot.mobile.persistence.repository"
-})
+@EnableJpaRepositories(basePackages = {"com.polyglot.mobile.persistence.repository"})
 @EnableSpringDataWebSupport
 @Import(value = {MobileJpaAuditingConfig.class, MobileCommonConfig.class})
 public class MobilePersistenceConfig {
@@ -60,7 +54,6 @@ public class MobilePersistenceConfig {
         dataSourceConfig.setUsername(dbUserName);
         dataSourceConfig.setPassword(dbPassword);
         HikariDataSource hikariDataSource = new HikariDataSource(dataSourceConfig);
-        DatabasePopulatorUtils.execute(databasePopulator(),hikariDataSource);
         return hikariDataSource;
     }
 
@@ -84,9 +77,9 @@ public class MobilePersistenceConfig {
         jpaProperties.put(PROPERTY_NAME_HIBERNATE_NAMING_STRATEGY, hibernateNamingStrategy);
         jpaProperties.put(PROPERTY_NAME_HIBERNATE_SHOW_SQL, hibernateShowSql);
         jpaProperties.put(PROPERTY_NAME_HIBERNATE_FORMAT_SQL, hibernateFormatSql);
-        jpaProperties.put(PROPERTY_NAME_HIBERNATE_USE_SECOND_LEVEL_CACHE, useSecondLevelCache);
-        jpaProperties.put(PROPERTY_NAME_HIBERNATE_USE_QUERY_CACHE, useQueryCache);
-        jpaProperties.put(PROPERTY_NAME_HIBERNATE_CACHE_REGION_FACTORY_CLASS,cacheFactoryClass);
+        //jpaProperties.put(PROPERTY_NAME_HIBERNATE_USE_SECOND_LEVEL_CACHE, useSecondLevelCache);
+        //jpaProperties.put(PROPERTY_NAME_HIBERNATE_USE_QUERY_CACHE, useQueryCache);
+        //jpaProperties.put(PROPERTY_NAME_HIBERNATE_CACHE_REGION_FACTORY_CLASS,cacheFactoryClass);
         entityManagerFactoryBean.setJpaProperties(jpaProperties);
         return entityManagerFactoryBean;
     }
@@ -96,14 +89,6 @@ public class MobilePersistenceConfig {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory);
         return transactionManager;
-    }
-
-    private DatabasePopulator databasePopulator() {
-        final ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
-        databasePopulator.setContinueOnError(false);
-        databasePopulator.addScript(new ClassPathResource("/META-INF/sql/config.sql"));
-        databasePopulator.addScript(new ClassPathResource("/META-INF/sql/propertiesData.sql"));
-        return databasePopulator;
     }
 
 }

@@ -2,13 +2,13 @@ package com.polyglot.mobile.common.util.spring.impl;
 
 import com.polyglot.mobile.common.AppEnvironment;
 import com.polyglot.mobile.common.util.spring.JdbcPropertyService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanInitializationException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.*;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.util.Assert;
 
 import javax.sql.DataSource;
@@ -18,19 +18,21 @@ import java.util.Arrays;
 /**
  * Created by Rajiv Singla on 10/16/2015.
  */
-@Slf4j
 public class JdbcAwarePropertySourcesPlaceholderConfigurer extends PropertySourcesPlaceholderConfigurer implements EnvironmentAware{
 
     private MutablePropertySources propertySources;
-
     private PropertySources appliedPropertySources;
-
     private Environment environment;
-
     private final String[] jdbcSqlScripts;
+    private final String jdbcQueryString;
+    private final RowMapper<JdbcPropertyEntity> jdbcPropertyEntityRowMapper;
 
-    public JdbcAwarePropertySourcesPlaceholderConfigurer(final String[] jdbcSqlScripts) {
+
+    public JdbcAwarePropertySourcesPlaceholderConfigurer(final String[] jdbcSqlScripts,
+    final String jdbcQueryString, final RowMapper<JdbcPropertyEntity> jdbcPropertyEntityRowMapper) {
         this.jdbcSqlScripts = jdbcSqlScripts;
+        this.jdbcQueryString = jdbcQueryString;
+        this.jdbcPropertyEntityRowMapper = jdbcPropertyEntityRowMapper;
     }
 
     @Override
@@ -97,11 +99,11 @@ public class JdbcAwarePropertySourcesPlaceholderConfigurer extends PropertySourc
     private PropertySource createJdbcPropertySource() {
         final String[] activeProfiles = environment.getActiveProfiles();
         if(activeProfiles.length == 0) {
-            log.error("No spring active profile found. Skipping adding JDBC properties datasource");
+            logger.error("No spring active profile found. Skipping adding JDBC properties datasource");
         }
         if(activeProfiles.length > 1) {
-            log.warn("Multiple spring profile detected: {} Will only use first profile: {}",
-                    Arrays.toString(activeProfiles),activeProfiles[0]);
+            logger.warn("Multiple spring profile detected: " +  Arrays.toString(activeProfiles)
+                    + "Will only use first profile: " + activeProfiles[0]);
         }
         final AppEnvironment appEnvironment = AppEnvironment.appEnvironmentNameMap.get(activeProfiles[0]);
 
@@ -114,7 +116,8 @@ public class JdbcAwarePropertySourcesPlaceholderConfigurer extends PropertySourc
                 new JdbcPropertyServiceImpl(dbDriver, dbUrl, dbUsername, dbPassword);
         final DataSource propertiesDataSource =
                 jdbcPropertyService.createPropertiesDataSource(jdbcSqlScripts);
-        final JdbcPropertySourceImpl jdbcPropertySource = new JdbcPropertySourceImpl(propertiesDataSource, appEnvironment);
+        final JdbcPropertySourceImpl jdbcPropertySource = new JdbcPropertySourceImpl(propertiesDataSource,
+                appEnvironment, jdbcQueryString,jdbcPropertyEntityRowMapper);
         return jdbcPropertySource;
     }
 }
