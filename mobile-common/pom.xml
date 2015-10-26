@@ -24,6 +24,12 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>com.polyglot.mobile</groupId>
+            <artifactId>mobile-model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
            <!---LOGGING -->
         <dependency>
             <groupId>org.slf4j</groupId>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.polyglot.mobile</groupId>
+        <artifactId>mobile-parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../mobile-parent/pom.xml</relativePath>
+    </parent>
+
+    <groupId>com.polyglot.mobile</groupId>
+    <artifactId>mobile-model</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <description>This Module will contain all Mobile Models</description>
+
+    <!--
+        This module must not have any dependencies on any other mobile modules
+        in compile scope. Only very bare minimum dependencies for POJO creation
+    -->
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

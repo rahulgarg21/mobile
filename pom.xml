@@ -19,6 +19,7 @@
     <modules>
         <module>mobile-parent</module>
         <module>mobile-common</module>
+        <module>mobile-model</module>
         <module>mobile-test-support</module>
         <module>mobile-persistence</module>
         <module>mobile-business</module>
