@@ -64,6 +64,7 @@
         <jayway.jsonpath.version>2.0.0</jayway.jsonpath.version>
         <dbunit.version>2.5.1</dbunit.version>
         <dbunit.spring.version>1.2.1</dbunit.spring.version>
+        <jsonassert.version>1.2.3</jsonassert.version>
         <!-- INTEGRATION TEST SETTINGS-->
         <jetty.version>9.3.5.v20151012</jetty.version>
         <jetty.server.port>8889</jetty.server.port>
@@ -707,6 +708,13 @@
                 <groupId>com.github.springtestdbunit</groupId>
                 <artifactId>spring-test-dbunit</artifactId>
                 <version>${dbunit.spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.skyscreamer</groupId>
+                <artifactId>jsonassert</artifactId>
+                <version>${jsonassert.version}</version>
+                <scope>test</scope>
             </dependency>
 
         </dependencies>

@@ -1,0 +1,56 @@
+{
+  "242074016": {
+    "baseUrl": "http://assets.bwbx.io/images/iY_8wtPRpXIs/v1/-1x-1.jpg",
+    "title": "Democratic Presidential Candidates Attend Iowa Jefferson-Jackson Dinner",
+    "description": "DES MOINES, IA - OCTOBER 24: Democratic presidential candidates Hillary Clinton, Senator Bernie Sanders (I-VT), and Martin O'Malley are introduced at the Jefferson-Jackson dinner on October 24, 2015 in Des Moines, Iowa. The dinner is a major fundraiser for Iowa's Democratic Party. (Photo by Scott Olson/Getty Images)",
+    "origWidth": 2310,
+    "images": {
+      "-1x-1": {
+        "id": "dynamic",
+        "height": "-1",
+        "width": "-1",
+        "sizeType": "1000",
+        "url": [
+          "http://assets.bwbx.io/images/iY_8wtPRpXIs/v1/-1x-1.jpg"
+        ]
+      },
+      "765x430": {
+        "id": "242074220",
+        "height": "430",
+        "width": "765",
+        "sizeType": "63",
+        "url": [
+          "http://assets.bwbx.io/images/iY_8wtPRpXIs/v1/765x430.jpg"
+        ]
+      },
+      "620x349": {
+        "id": "242074224",
+        "height": "349",
+        "width": "620",
+        "sizeType": "34",
+        "url": [
+          "http://assets.bwbx.io/images/iY_8wtPRpXIs/v1/620x349.jpg"
+        ]
+      },
+      "400x225": {
+        "id": "242074214",
+        "height": "225",
+        "width": "400",
+        "sizeType": "18",
+        "url": [
+          "http://assets.bwbx.io/images/iY_8wtPRpXIs/v1/400x225.jpg"
+        ]
+      },
+      "220x220": {
+        "id": "242074222",
+        "height": "220",
+        "width": "220",
+        "sizeType": "29",
+        "url": [
+          "http://assets.bwbx.io/images/iY_8wtPRpXIs/v1/220x220.jpg"
+        ]
+      }
+    }
+  },
+  "_expanded": true
+}

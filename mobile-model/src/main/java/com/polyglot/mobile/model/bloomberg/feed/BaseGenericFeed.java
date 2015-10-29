@@ -25,6 +25,5 @@ public abstract class BaseGenericFeed<M extends FeedModule> implements GenericFe
     @Override
     public List<M> getItems() {
         return items;
-
     }
 }
