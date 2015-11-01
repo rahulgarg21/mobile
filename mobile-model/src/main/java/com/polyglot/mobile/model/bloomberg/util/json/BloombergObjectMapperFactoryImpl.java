@@ -1,13 +1,6 @@
 package com.polyglot.mobile.model.bloomberg.util.json;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.polyglot.mobile.model.bloomberg.attachment.image.Image;
-import com.polyglot.mobile.model.bloomberg.attachment.image.ImageDetail;
-import com.polyglot.mobile.model.bloomberg.attachment.image.ImageMediaAttachment;
-import com.polyglot.mobile.model.bloomberg.util.json.mixin.attachment.image.ImageDetailMixin;
-import com.polyglot.mobile.model.bloomberg.util.json.mixin.attachment.image.ImageMediaAttachmentMixin;
-import com.polyglot.mobile.model.bloomberg.util.json.mixin.attachment.image.ImageMixin;
 
 /**
  * Factory class to be used by clients to get Object Mapper which

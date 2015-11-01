@@ -19,6 +19,10 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 /**
+ * Base class for all Mixin Tests.
+ * <p/>
+ * Contains various utility methods for json serialization, deserialization and json comparison
+ * <p/>
  * Created by Rajiv Singla on 10/28/2015.
  */
 @Slf4j
@@ -33,18 +37,43 @@ public abstract class BaseMixinTest {
         objectMapper = bloombergObjectMapperFactory.getGenericObjectMapper();
     }
 
+    /**
+     * Deserialize given Json file location to given model class and returns it back without any validation check
+     *
+     * @param jsonFileLocation Classpath location of the json file
+     * @param modelClass       Model Class type
+     * @param <T>              Json Model Type
+     * @return
+     */
     public static <T> T deserializeJsonFileToModel(String jsonFileLocation, Class<T> modelClass) {
         final InputStream jsonFileInputStream = BaseMixinTest.class.getClassLoader().getResourceAsStream(jsonFileLocation);
         Assert.assertNotNull("Json File Location must be valid", jsonFileInputStream);
         try {
             return objectMapper.readValue(jsonFileInputStream, modelClass);
         } catch (IOException ex) {
-            log.error("Error while doing assert Json for jsonFileLocation: {}, modelClass: {}, Exception {}",
+            log.error("Error while doing assert Json for fileLocation: {}, modelClass: {}, Exception {}",
                     jsonFileLocation, modelClass, ex);
             throw new RuntimeException(ex);
+        } finally {
+            try {
+                jsonFileInputStream.close();
+            } catch (IOException e) {
+               log.error("Error while closing input stream at file location: {}", jsonFileLocation);
+                throw new RuntimeException(e);
+            }
         }
     }
 
+    /**
+     * Deserialize given Json file location to given model class and then validates deserialization by comparing it
+     * with given expected Object
+     *
+     * @param jsonFileLocation   Classpath location of the json file
+     * @param modelClass         Model Class type
+     * @param expectedJsonObject Expected Json Object
+     * @param <T>                Json Model Type
+     * @return deserialized actual value if expected Json Object matches deserialized object
+     */
     public static <T> T assertJsonDeserialization(String jsonFileLocation, Class<T> modelClass, T expectedJsonObject) {
         final T actualValue = deserializeJsonFileToModel(jsonFileLocation, modelClass);
         assertThat(actualValue, is(expectedJsonObject));
@@ -55,6 +84,12 @@ public abstract class BaseMixinTest {
         return objectMapper.writeValueAsString(model);
     }
 
+    /**
+     * Converts given model to json string and compare it with json present at given file location
+     *
+     * @param model                    Model which needs to be compared
+     * @param expectedJsonFileLocation Location of file containing expected json string
+     */
     public static void assertJsonSerialization(Object model, String expectedJsonFileLocation) {
         try {
             final String actualModelString = serializeModelToJson(model);
@@ -84,8 +119,16 @@ public abstract class BaseMixinTest {
         assertJsonSerialization(actualValue, jsonFileLocation);
     }
 
-    public static String fromStream(String jsonFileLocation) throws IOException {
-        final InputStream jsonFileInputStream = BaseMixinTest.class.getClassLoader().getResourceAsStream(jsonFileLocation);
+    /**
+     * Converts given file location to String
+     *
+     * @param fileLocation location of the file which needs to be converted to String
+     * @return Contents of file as string
+     * @throws IOException
+     */
+    public static String fromStream(String fileLocation) throws IOException {
+        final InputStream jsonFileInputStream = BaseMixinTest.class.getClassLoader().getResourceAsStream(fileLocation);
+        Assert.assertNotNull("Json File Location must be valid", jsonFileInputStream);
         final BufferedReader reader = new BufferedReader(new InputStreamReader(jsonFileInputStream));
         final StringBuilder result = new StringBuilder();
         final String newLine = System.getProperty("line.separator");

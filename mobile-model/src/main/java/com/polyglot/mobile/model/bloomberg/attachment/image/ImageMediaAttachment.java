@@ -3,6 +3,7 @@ package com.polyglot.mobile.model.bloomberg.attachment.image;
 import com.polyglot.mobile.model.bloomberg.attachment.BaseGenericMediaAttachment;
 import com.polyglot.mobile.model.bloomberg.attachment.MediaAttachmentType;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -10,6 +11,7 @@ import java.util.Map;
 /**
  * Created by Rajiv Singla on 10/25/2015.
  */
+@EqualsAndHashCode(callSuper = false)
 @Data
 public class ImageMediaAttachment extends BaseGenericMediaAttachment {
 

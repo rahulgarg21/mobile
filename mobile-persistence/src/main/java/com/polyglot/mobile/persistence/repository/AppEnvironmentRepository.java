@@ -1,7 +1,6 @@
 package com.polyglot.mobile.persistence.repository;
 
 import com.polyglot.mobile.common.AppEnvironment;
-import com.polyglot.mobile.common.annotations.LogDuration;
 import com.polyglot.mobile.persistence.entity.AppEnvironmentEntity;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;

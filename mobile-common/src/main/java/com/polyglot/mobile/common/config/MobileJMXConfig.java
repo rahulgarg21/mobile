@@ -1,8 +1,5 @@
 package com.polyglot.mobile.common.config;
 
-import com.google.common.collect.ImmutableMap;
-import com.polyglot.mobile.common.MobileConstants;
-import net.sf.ehcache.management.ManagementService;
 import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,11 +14,6 @@ import org.springframework.jmx.support.MBeanServerFactoryBean;
 import org.springframework.jmx.support.RegistrationPolicy;
 
 import javax.management.MBeanServer;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import static com.polyglot.mobile.common.MobileConstants.JMX_PREFIX;
 
 /**
  * Created by Rajiv Singla on 10/1/2015.

@@ -1,7 +1,5 @@
 package com.polyglot.mobile.common.appconfig.impl;
 
-import com.polyglot.mobile.common.MobileConstants;
-import com.polyglot.mobile.common.annotations.LogDuration;
 import com.polyglot.mobile.common.appconfig.NYTimesKeySource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jmx.export.annotation.ManagedOperation;

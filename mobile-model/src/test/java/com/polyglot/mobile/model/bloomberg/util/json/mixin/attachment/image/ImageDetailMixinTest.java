@@ -3,10 +3,10 @@ package com.polyglot.mobile.model.bloomberg.util.json.mixin.attachment.image;
 import com.polyglot.mobile.model.bloomberg.attachment.image.Image;
 import com.polyglot.mobile.model.bloomberg.attachment.image.ImageDetail;
 import com.polyglot.mobile.model.bloomberg.util.json.mixin.BaseMixinTest;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Map;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 

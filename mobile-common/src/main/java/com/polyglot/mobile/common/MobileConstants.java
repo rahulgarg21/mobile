@@ -1,8 +1,5 @@
 package com.polyglot.mobile.common;
 
-import org.springframework.jmx.export.annotation.ManagedAttribute;
-import org.springframework.jmx.export.annotation.ManagedResource;
-
 /**
  * Created by Rajiv Singla on 10/7/2015.
  */

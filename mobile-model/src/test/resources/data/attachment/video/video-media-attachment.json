@@ -1,0 +1,52 @@
+{
+  "242022382": {
+    "avmm_ids": [
+      "242022382"
+    ],
+    "id": "fb65ca92-4b07-4d03-89a5-d43a5010dac7",
+    "bmmrId": "~2XKkksHTQOJpdQ6UBDaxw",
+    "url": "http://www.bloomberg.com/politics/videos/2015-10-23/ben-carson-says-secret-service-would-change-his-lifestyle",
+    "shortUrl": "http://bloom.bg/1RsX8V9",
+    "suid": "NWOZHC6K50Y2",
+    "thumbnail": {
+      "images": {
+        "-1x-1": {
+          "id": "242022386",
+          "height": "1080",
+          "width": "1920",
+          "sizeType": "0",
+          "url": [
+            "http://www.bloomberg.com/image/iM0rz74ivMVw.jpg"
+          ]
+        },
+        "840x473": {
+          "id": "242022428",
+          "height": "473",
+          "width": "840",
+          "sizeType": "64",
+          "url": [
+            "http://www.bloomberg.com/image/iMKonQvPP3.I.jpg"
+          ]
+        },
+        "620x349": {
+          "id": "242022422",
+          "height": "349",
+          "width": "620",
+          "sizeType": "34",
+          "url": [
+            "http://www.bloomberg.com/image/io_CSZXobWpI.jpg"
+          ]
+        },
+        "400x225": {
+          "id": "242022408",
+          "height": "225",
+          "width": "400",
+          "sizeType": "18",
+          "url": [
+            "http://www.bloomberg.com/image/itWQKFBRasB0.jpg"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableList;
 import com.polyglot.mobile.model.bloomberg.attachment.image.ImageDetail;
 import com.polyglot.mobile.model.bloomberg.attachment.image.ImageMediaAttachment;
 import com.polyglot.mobile.model.bloomberg.util.json.mixin.BaseMixinTest;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
@@ -19,6 +18,7 @@ import static org.junit.Assert.assertThat;
 public class ImageMediaAttachmentMixinTest extends BaseMixinTest {
 
     final String jsonFileLocation = "data/attachment/image/image-media-attachment.json";
+
     @Test
     public void testImageMediaAttachmentDeserialization() throws Exception {
         final ImageMediaAttachment imageMediaAttachment = deserializeJsonFileToModel(

@@ -1,7 +1,5 @@
 package com.polyglot.mobile.model.bloomberg.util.json.mixin.attachment.image;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.List;
 
 /**
