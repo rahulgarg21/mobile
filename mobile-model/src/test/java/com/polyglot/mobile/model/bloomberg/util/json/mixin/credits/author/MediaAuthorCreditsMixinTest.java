@@ -6,7 +6,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
 
 /**
  * Created by Rajiv Singla on 11/1/2015.
@@ -20,9 +19,9 @@ public class MediaAuthorCreditsMixinTest extends BaseMixinTest {
 
         final MediaAuthorCredits mediaAuthorCredits = deserializeJsonFileToModel(jsonFileLocation, MediaAuthorCredits.class);
 
-        Assert.assertThat(mediaAuthorCredits.getAuthor().size(),is(1));
+        Assert.assertThat(mediaAuthorCredits.getAuthor().size(), is(1));
 
-        assertJsonSerialization(mediaAuthorCredits,jsonFileLocation);
+        assertJsonSerialization(mediaAuthorCredits, jsonFileLocation);
 
     }
 

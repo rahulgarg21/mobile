@@ -8,14 +8,18 @@ import org.aspectj.lang.annotation.Pointcut;
 public class MobilePointcuts {
 
     @Pointcut("execution(public com.polyglot.mobile.common.appconfig.impl.* *(..))")
-    public void anyPublicOperation() {}
+    public void anyPublicOperation() {
+    }
 
     @Pointcut("within(com.polyglot.mobile..*)")
-    public void inMobile() {}
+    public void inMobile() {
+    }
 
     @Pointcut("@annotation(com.polyglot.mobile.common.annotations.LogDuration)")
-    public void hasLogDurationAnnotation(){}
+    public void hasLogDurationAnnotation() {
+    }
 
     @Pointcut("anyPublicOperation() && hasLogDurationAnnotation()")
-    public void logDurationPointcut() {}
+    public void logDurationPointcut() {
+    }
 }

@@ -41,8 +41,8 @@ public class JdbcPropertyServiceImpl implements JdbcPropertyService {
         }
         final SimpleDriverDataSource simpleDriverDataSource = new SimpleDriverDataSource(driver, url, username, password);
 
-        if(sqlScriptPaths != null) {
-            executePropertySqlScript(simpleDriverDataSource,sqlScriptPaths);
+        if (sqlScriptPaths != null) {
+            executePropertySqlScript(simpleDriverDataSource, sqlScriptPaths);
         }
         return simpleDriverDataSource;
     }
@@ -50,7 +50,7 @@ public class JdbcPropertyServiceImpl implements JdbcPropertyService {
     private void executePropertySqlScript(final DataSource targetDataSource, final String... sqlScriptPaths) {
         final ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
         databasePopulator.setContinueOnError(false);
-        for(String sqlScriptPath : sqlScriptPaths) {
+        for (String sqlScriptPath : sqlScriptPaths) {
             databasePopulator.addScript(new ClassPathResource(sqlScriptPath));
         }
         DatabasePopulatorUtils.execute(databasePopulator, targetDataSource);

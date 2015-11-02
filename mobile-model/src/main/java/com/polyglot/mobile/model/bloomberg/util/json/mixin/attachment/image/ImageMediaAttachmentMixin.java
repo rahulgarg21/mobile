@@ -10,14 +10,14 @@ import java.util.Map;
 /**
  * Created by Rajiv Singla on 10/27/2015.
  */
-@JsonPropertyOrder({"imageDetails","_expanded"})
+@JsonPropertyOrder({"imageDetails", "_expanded"})
 public abstract class ImageMediaAttachmentMixin {
 
     @JsonAnySetter
     public abstract void addImageDetail(String id, ImageDetail imageDetail);
 
     @JsonAnyGetter
-    public abstract Map<String,ImageDetail> getImageDetails();
+    public abstract Map<String, ImageDetail> getImageDetails();
 
     @JsonInclude(Include.NON_NULL)
     private Boolean _expanded;

@@ -8,7 +8,7 @@ import lombok.Data;
  * Created by Rajiv Singla on 11/1/2015.
  */
 @Data
-public class SocialMetadata implements BHeadlineModel, BDescriptionModel{
+public class SocialMetadata implements BHeadlineModel, BDescriptionModel {
 
     private String twitterText;
     private String headline;

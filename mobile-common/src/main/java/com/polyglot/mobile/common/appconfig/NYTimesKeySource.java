@@ -5,5 +5,6 @@ package com.polyglot.mobile.common.appconfig;
  */
 public interface NYTimesKeySource {
     public String getArticleSearchAPIKey();
+
     public String getTopStoriesAPIKey();
 }

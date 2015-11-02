@@ -1,18 +1,13 @@
 package com.polyglot.mobile.model.bloomberg.feed;
 
 import com.polyglot.mobile.model.bloomberg.module.FeedModule;
-
-import java.util.List;
+import lombok.Data;
 
 /**
  * Created by Rajiv Singla on 10/25/2015.
  */
+@Data
 public class PoliticsFeed<M extends FeedModule> extends BaseGenericFeed<M> {
-
-
-    public PoliticsFeed(final List<M> items, final boolean _expanded) {
-        super(items, _expanded);
-    }
 
     @Override
     public FeedType getType() {

@@ -18,7 +18,7 @@ import java.util.Arrays;
 /**
  * Created by Rajiv Singla on 10/16/2015.
  */
-public class JdbcAwarePropertySourcesPlaceholderConfigurer extends PropertySourcesPlaceholderConfigurer implements EnvironmentAware{
+public class JdbcAwarePropertySourcesPlaceholderConfigurer extends PropertySourcesPlaceholderConfigurer implements EnvironmentAware {
 
     private MutablePropertySources propertySources;
     private PropertySources appliedPropertySources;
@@ -29,7 +29,7 @@ public class JdbcAwarePropertySourcesPlaceholderConfigurer extends PropertySourc
 
 
     public JdbcAwarePropertySourcesPlaceholderConfigurer(final String[] jdbcSqlScripts,
-    final String jdbcQueryString, final RowMapper<JdbcPropertyEntity> jdbcPropertyEntityRowMapper) {
+                                                         final String jdbcQueryString, final RowMapper<JdbcPropertyEntity> jdbcPropertyEntityRowMapper) {
         this.jdbcSqlScripts = jdbcSqlScripts;
         this.jdbcQueryString = jdbcQueryString;
         this.jdbcPropertyEntityRowMapper = jdbcPropertyEntityRowMapper;
@@ -60,12 +60,10 @@ public class JdbcAwarePropertySourcesPlaceholderConfigurer extends PropertySourc
                         new PropertiesPropertySource(LOCAL_PROPERTIES_PROPERTY_SOURCE_NAME, mergeProperties());
                 if (this.localOverride) {
                     this.propertySources.addFirst(localPropertySource);
-                }
-                else {
+                } else {
                     this.propertySources.addLast(localPropertySource);
                 }
-            }
-            catch (IOException ex) {
+            } catch (IOException ex) {
                 throw new BeanInitializationException("Could not load properties", ex);
             }
         }
@@ -77,6 +75,7 @@ public class JdbcAwarePropertySourcesPlaceholderConfigurer extends PropertySourc
     /**
      * Returns the property sources that were actually applied during
      * {@link #postProcessBeanFactory(ConfigurableListableBeanFactory) post-processing}.
+     *
      * @return the property sources that were applied
      * @throws IllegalStateException if the property sources have not yet been applied
      * @since 4.0
@@ -90,6 +89,7 @@ public class JdbcAwarePropertySourcesPlaceholderConfigurer extends PropertySourc
      * Customize the set of {@link PropertySources} to be used by this configurer.
      * Setting this property indicates that environment property sources and local
      * properties should be ignored.
+     *
      * @see #postProcessBeanFactory
      */
     public void setPropertySources(PropertySources propertySources) {
@@ -98,11 +98,11 @@ public class JdbcAwarePropertySourcesPlaceholderConfigurer extends PropertySourc
 
     private PropertySource createJdbcPropertySource() {
         final String[] activeProfiles = environment.getActiveProfiles();
-        if(activeProfiles.length == 0) {
+        if (activeProfiles.length == 0) {
             logger.error("No spring active profile found. Skipping adding JDBC properties datasource");
         }
-        if(activeProfiles.length > 1) {
-            logger.warn("Multiple spring profile detected: " +  Arrays.toString(activeProfiles)
+        if (activeProfiles.length > 1) {
+            logger.warn("Multiple spring profile detected: " + Arrays.toString(activeProfiles)
                     + "Will only use first profile: " + activeProfiles[0]);
         }
         final AppEnvironment appEnvironment = AppEnvironment.appEnvironmentNameMap.get(activeProfiles[0]);
@@ -117,7 +117,7 @@ public class JdbcAwarePropertySourcesPlaceholderConfigurer extends PropertySourc
         final DataSource propertiesDataSource =
                 jdbcPropertyService.createPropertiesDataSource(jdbcSqlScripts);
         final JdbcPropertySourceImpl jdbcPropertySource = new JdbcPropertySourceImpl(propertiesDataSource,
-                appEnvironment, jdbcQueryString,jdbcPropertyEntityRowMapper);
+                appEnvironment, jdbcQueryString, jdbcPropertyEntityRowMapper);
         return jdbcPropertySource;
     }
 }

@@ -13,7 +13,7 @@ public interface JdbcPropertySource {
 
     public void loadPropertyCache();
 
-    public Map<AppEnvironment,Map<String,String>> getAllCachedProperties();
+    public Map<AppEnvironment, Map<String, String>> getAllCachedProperties();
 
     public void evictPropertyCache();
 }

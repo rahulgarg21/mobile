@@ -19,7 +19,7 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 @Getter
 @ToString
-public abstract class AuditEntity implements BaseMobileEntity{
+public abstract class AuditEntity implements BaseMobileEntity {
 
     @Column(name = "CREATED_BY_USER", nullable = false)
     @CreatedBy

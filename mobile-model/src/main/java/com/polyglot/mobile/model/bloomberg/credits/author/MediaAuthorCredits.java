@@ -9,7 +9,7 @@ import java.util.List;
  * Created by Rajiv Singla on 11/1/2015.
  */
 @Data
-public class MediaAuthorCredits extends BaseGenericMediaCredits{
+public class MediaAuthorCredits extends BaseGenericMediaCredits {
 
     private List<MediaAuthor> author;
 

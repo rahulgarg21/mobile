@@ -10,7 +10,7 @@ import java.util.List;
  * Created by Rajiv Singla on 11/1/2015.
  */
 @Data
-public class BaseGenericMediaTags implements GenericMediaTags{
+public class BaseGenericMediaTags implements GenericMediaTags {
 
     private List<MediaTopic> topics;
     private List<MediaLabel> labels;

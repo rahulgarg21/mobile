@@ -22,7 +22,6 @@ import javax.management.MBeanServer;
 public class MobileJMXConfig {
 
 
-
     @Bean
     @Lazy(value = false)
     public MBeanExporter mobileMBeanExporter(final MBeanServer mBeanServer, final ObjectNamingStrategy namingStrategy,

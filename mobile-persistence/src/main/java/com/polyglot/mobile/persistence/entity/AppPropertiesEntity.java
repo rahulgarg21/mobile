@@ -19,8 +19,8 @@ public class AppPropertiesEntity extends AuditEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = " APP_PROPERTIES_ID_SEQ_GEN")
-    @SequenceGenerator(name = " APP_PROPERTIES_ID_SEQ_GEN", sequenceName = " APP_PROPERTIES_ID_SEQ", initialValue = 0,allocationSize = 1, schema = "CONFIG")
-    @Column(name="APP_PROPERTIES_ID")
+    @SequenceGenerator(name = " APP_PROPERTIES_ID_SEQ_GEN", sequenceName = " APP_PROPERTIES_ID_SEQ", initialValue = 0, allocationSize = 1, schema = "CONFIG")
+    @Column(name = "APP_PROPERTIES_ID")
     private Long id;
 
     @Column(name = "APP_PROPERTY_KEY", nullable = false)

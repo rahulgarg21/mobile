@@ -6,5 +6,4 @@ package com.polyglot.mobile.model.bloomberg.credits;
 public interface GenericMediaCredits extends MediaCredits {
 
 
-
 }

@@ -4,7 +4,7 @@ import org.joda.time.DateTime;
 
 /**
  * Model which are aware of Update Timings
- *
+ * <p/>
  * Created by Rajiv Singla on 10/25/2015.
  */
 public interface BUpdatedAtModel extends BModel {

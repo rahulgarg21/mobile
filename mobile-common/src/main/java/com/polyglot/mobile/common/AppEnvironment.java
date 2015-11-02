@@ -17,12 +17,14 @@ public enum AppEnvironment {
     PROD;
 
 
-    private static final Builder<String,AppEnvironment> mapBuilder = builder();
+    private static final Builder<String, AppEnvironment> mapBuilder = builder();
+
     static {
-        for(AppEnvironment appEnvironment : AppEnvironment.values()) {
+        for (AppEnvironment appEnvironment : AppEnvironment.values()) {
             mapBuilder.put(appEnvironment.name(), appEnvironment);
         }
     }
-    public static final Map<String,AppEnvironment> appEnvironmentNameMap = mapBuilder.build();
+
+    public static final Map<String, AppEnvironment> appEnvironmentNameMap = mapBuilder.build();
 
 }

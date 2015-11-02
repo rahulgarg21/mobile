@@ -8,4 +8,7 @@ import lombok.Data;
  */
 @Data
 public class ArticleMetadata extends BaseGenericMediaMetadata {
+
+    private ArticleLedeMetadata lede;
+
 }

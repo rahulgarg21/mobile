@@ -1,9 +1,11 @@
 package com.polyglot.mobile.model.bloomberg.util.json;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
 import com.polyglot.mobile.model.bloomberg.util.json.custom.DateTimeSerializer;
+import com.polyglot.mobile.model.bloomberg.util.json.mixin.BloombergModule;
 
 /**
  * Factory class to be used by clients to get Object Mapper which
@@ -29,6 +31,9 @@ public class BloombergObjectMapperFactoryImpl implements BloombergObjectMapperFa
 
         //We don't want to serialize null values
         objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+
+        //We don't want to fail on unknown properties
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
         return objectMapper;
     }

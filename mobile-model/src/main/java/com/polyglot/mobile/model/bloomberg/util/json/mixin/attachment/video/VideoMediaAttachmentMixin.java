@@ -5,10 +5,8 @@ import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.polyglot.mobile.model.bloomberg.attachment.BaseGenericMediaAttachment;
 import com.polyglot.mobile.model.bloomberg.attachment.MediaAttachmentType;
-import com.polyglot.mobile.model.bloomberg.attachment.image.ImageDetail;
 import com.polyglot.mobile.model.bloomberg.attachment.video.VideoDetail;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -21,7 +19,7 @@ public abstract class VideoMediaAttachmentMixin extends BaseGenericMediaAttachme
     public abstract void addVideoDetail(String id, VideoDetail videoDetail);
 
     @JsonAnyGetter
-    public abstract Map<String,VideoDetail> getVideoDetails();
+    public abstract Map<String, VideoDetail> getVideoDetails();
 
     @JsonIgnore
     public abstract MediaAttachmentType getType();

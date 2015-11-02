@@ -24,6 +24,6 @@ public class ImageDetailMixinTest extends BaseMixinTest {
         final Map<String, Image> images = imageDetail.getImages();
         assertThat(images.size(), is(5));
 
-        assertJsonSerialization(imageDetail,jsonFileLocation);
+        assertJsonSerialization(imageDetail, jsonFileLocation);
     }
 }

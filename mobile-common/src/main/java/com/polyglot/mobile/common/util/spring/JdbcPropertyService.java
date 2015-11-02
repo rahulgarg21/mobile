@@ -9,6 +9,7 @@ public interface JdbcPropertyService {
 
     /**
      * Creates properties Data source and populates it given sql scripts
+     *
      * @param sqlScriptPaths
      * @return
      */

@@ -7,7 +7,8 @@ public enum ModuleMediaType {
 
     ARTICLE("article"),
     TRACKER("tracker"),
-    FEATURE("feature");
+    FEATURE("feature"),
+    VIDEO("video");
 
     private String description;
 

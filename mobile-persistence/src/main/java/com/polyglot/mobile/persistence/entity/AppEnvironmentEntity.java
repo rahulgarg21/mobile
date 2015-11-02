@@ -21,7 +21,7 @@ public class AppEnvironmentEntity extends AuditEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "APP_ENVIRONMENT_ID_SEQ_GEN")
     @SequenceGenerator(name = "APP_ENVIRONMENT_ID_SEQ_GEN", sequenceName = "APP_ENVIRONMENT_ID_SEQ", initialValue = 0, allocationSize = 1, schema = "CONFIG")
-    @Column(name="APP_ENVIRONMENT_ID")
+    @Column(name = "APP_ENVIRONMENT_ID")
     private Long id;
 
     @Column(name = "APP_ENVIRONMENT_NAME", nullable = false)

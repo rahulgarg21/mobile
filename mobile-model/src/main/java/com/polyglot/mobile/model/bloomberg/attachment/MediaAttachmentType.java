@@ -6,6 +6,6 @@ package com.polyglot.mobile.model.bloomberg.attachment;
 public enum MediaAttachmentType {
 
     IMAGE,
-    VIDEO;
+    VIDEO
 
 }

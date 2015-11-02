@@ -1,24 +1,13 @@
 package com.polyglot.mobile.model.bloomberg.util.json.mixin.metadata.article;
 
-import com.polyglot.mobile.model.bloomberg.metadata.article.LedeMetadata;
-import com.polyglot.mobile.model.bloomberg.metadata.article.SeoMetadata;
-import com.polyglot.mobile.model.bloomberg.metadata.article.SocialMetadata;
+import com.polyglot.mobile.model.bloomberg.metadata.article.ArticleLedeMetadata;
+import com.polyglot.mobile.model.bloomberg.util.json.mixin.metadata.BaseGenericMediaMetadataMixin;
 
 /**
  * Created by Rajiv Singla on 11/1/2015.
  */
-public abstract class ArticleMetadataMixin {
+public abstract class ArticleMetadataMixin extends BaseGenericMediaMetadataMixin {
 
-    private Integer flowcmsId;
-    private String thumbnail;
-    private String background;
-    private SeoMetadata seo;
-    private Boolean googleStandout;
-    private SocialMetadata social;
-    private String ledeTreatment;
-    private LedeMetadata lede;
-    private String adCode;
-    private Boolean disableAds;
-    private Boolean suppressRecirc;
+    private ArticleLedeMetadata lede;
 
 }

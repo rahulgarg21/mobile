@@ -12,7 +12,7 @@ import static org.hamcrest.CoreMatchers.is;
 /**
  * Created by Rajiv Singla on 11/1/2015.
  */
-public class ArticleMediaAttachmentMixinTest extends BaseMixinTest{
+public class ArticleMediaAttachmentMixinTest extends BaseMixinTest {
 
     @Test
     public void testArticleMediaAttachmentJsonConversion() throws Exception {
@@ -24,8 +24,8 @@ public class ArticleMediaAttachmentMixinTest extends BaseMixinTest{
         final ImageMediaAttachment image = articleMediaAttachment.getImage();
         final VideoMediaAttachment video = articleMediaAttachment.getVideo();
 
-        Assert.assertThat(image.getImageDetails().size(),is(1));
-        Assert.assertThat(video.getVideoDetails().size(),is(1));
+        Assert.assertThat(image.getImageDetails().size(), is(1));
+        Assert.assertThat(video.getVideoDetails().size(), is(1));
 
         assertJsonSerialization(articleMediaAttachment, jsonFileLocation);
     }
@@ -40,8 +40,8 @@ public class ArticleMediaAttachmentMixinTest extends BaseMixinTest{
         final ImageMediaAttachment image = articleMediaAttachment.getImage();
         final VideoMediaAttachment video = articleMediaAttachment.getVideo();
 
-        Assert.assertThat(image.getImageDetails().size(),is(1));
-        Assert.assertThat(video.getVideoDetails().size(),is(0));
+        Assert.assertThat(image.getImageDetails().size(), is(1));
+        Assert.assertThat(video.getVideoDetails().size(), is(0));
 
         assertJsonSerialization(articleMediaAttachment, jsonFileLocation);
     }
@@ -56,8 +56,8 @@ public class ArticleMediaAttachmentMixinTest extends BaseMixinTest{
         final ImageMediaAttachment image = articleMediaAttachment.getImage();
         final VideoMediaAttachment video = articleMediaAttachment.getVideo();
 
-        Assert.assertThat(image.getImageDetails().size(),is(0));
-        Assert.assertThat(video.getVideoDetails().size(),is(1));
+        Assert.assertThat(image.getImageDetails().size(), is(0));
+        Assert.assertThat(video.getVideoDetails().size(), is(1));
 
         assertJsonSerialization(articleMediaAttachment, jsonFileLocation);
     }

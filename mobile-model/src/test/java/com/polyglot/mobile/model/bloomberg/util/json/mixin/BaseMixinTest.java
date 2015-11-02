@@ -10,10 +10,8 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.skyscreamer.jsonassert.JSONAssert;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.net.URL;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -58,7 +56,7 @@ public abstract class BaseMixinTest {
             try {
                 jsonFileInputStream.close();
             } catch (IOException e) {
-               log.error("Error while closing input stream at file location: {}", jsonFileLocation);
+                log.error("Error while closing input stream at file location: {}", jsonFileLocation);
                 throw new RuntimeException(e);
             }
         }
@@ -140,6 +138,25 @@ public abstract class BaseMixinTest {
         }
         jsonFileInputStream.close();
         return result.toString();
+    }
+
+
+    /**
+     * Checks if object can be serialized properly
+     *
+     * @param object
+     * @throws Exception
+     */
+    public static void testSerialization(Object object) throws Exception{
+        final URL location = BaseMixinTest.class.getProtectionDomain().getCodeSource().getLocation();
+        final File homepageSerializationFile =
+                new File(location.getPath() + String.format("serialization/%s.ser",object.getClass().getSimpleName()));
+        homepageSerializationFile.getParentFile().mkdirs();
+        final FileOutputStream fileOutputStream = new FileOutputStream(homepageSerializationFile);
+        final ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+        objectOutputStream.writeObject(object);
+        objectOutputStream.close();
+        fileOutputStream.close();
     }
 
 }

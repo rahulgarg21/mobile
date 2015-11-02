@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * specializes in Bloomberg Object Mapper. Concrete implementations
  * should provide different strategies to deserialize Bloomberg
  * feeds
- *
+ * <p/>
  * Created by Rajiv Singla on 10/28/2015.
  */
 public interface BloombergObjectMapperFactory {

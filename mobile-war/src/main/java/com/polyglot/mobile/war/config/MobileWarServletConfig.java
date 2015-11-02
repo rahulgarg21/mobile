@@ -46,7 +46,7 @@ public class MobileWarServletConfig extends WebMvcConfigurerAdapter {
     @Override
     public void configureViewResolvers(ViewResolverRegistry viewResolverRegistry) {
         viewResolverRegistry.enableContentNegotiation(new MappingJackson2JsonView());
-        viewResolverRegistry.jsp("/WEB-INF/views/jsp/",".jsp");
+        viewResolverRegistry.jsp("/WEB-INF/views/jsp/", ".jsp");
     }
 
     @Override

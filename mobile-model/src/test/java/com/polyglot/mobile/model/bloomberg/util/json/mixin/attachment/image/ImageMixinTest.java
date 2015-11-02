@@ -10,7 +10,7 @@ import java.util.Arrays;
 /**
  * Created by Rajiv Singla on 10/28/2015.
  */
-public class ImageMixinTest extends BaseMixinTest{
+public class ImageMixinTest extends BaseMixinTest {
 
     final String jsonFileLocation = "data/attachment/image/image.json";
 

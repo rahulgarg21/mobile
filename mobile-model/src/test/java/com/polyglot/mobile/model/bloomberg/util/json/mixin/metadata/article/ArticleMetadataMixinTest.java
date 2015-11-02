@@ -1,12 +1,9 @@
 package com.polyglot.mobile.model.bloomberg.util.json.mixin.metadata.article;
 
-import com.polyglot.mobile.model.bloomberg.credits.author.MediaAuthorCredits;
 import com.polyglot.mobile.model.bloomberg.metadata.article.ArticleMetadata;
 import com.polyglot.mobile.model.bloomberg.util.json.mixin.BaseMixinTest;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.hamcrest.CoreMatchers.is;
 
 /**
  * Created by Rajiv Singla on 11/1/2015.

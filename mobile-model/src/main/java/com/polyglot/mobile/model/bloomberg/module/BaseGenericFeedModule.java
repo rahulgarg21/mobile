@@ -12,11 +12,11 @@ import java.util.List;
 @Data
 public abstract class BaseGenericFeedModule<M extends ModuleMedia> implements GenericFeedModule<M> {
 
-    private String id;
-    private List<M> items;
-    private DateTime updatedAt;
-    private boolean autofill;
-    private String searchPath;
-    private String type;
+    protected String id;
+    protected List<M> items;
+    protected DateTime updatedAt;
+    protected String searchPath;
+    protected String type;
+    protected String title;
 
 }

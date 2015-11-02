@@ -10,12 +10,12 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 public class MobileWarApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class<?>[] {MobileWarConfig.class};
+        return new Class<?>[]{MobileWarConfig.class};
     }
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class<?>[] {MobileWarServletConfig.class};
+        return new Class<?>[]{MobileWarServletConfig.class};
     }
 
     @Override

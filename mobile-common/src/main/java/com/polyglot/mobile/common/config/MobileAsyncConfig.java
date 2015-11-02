@@ -17,7 +17,7 @@ import java.util.concurrent.Executor;
 @Configuration
 @EnableAsync
 @Slf4j
-public class MobileAsyncConfig implements AsyncConfigurer{
+public class MobileAsyncConfig implements AsyncConfigurer {
 
     @Override
     @Bean
@@ -38,7 +38,7 @@ public class MobileAsyncConfig implements AsyncConfigurer{
             @Override
             public void handleUncaughtException(Throwable ex, Method method, Object... params) {
                 log.debug("Async Exception: {}, Class: {}, Method: {}, params: {}",
-                        ex.toString(),method.getDeclaringClass().getCanonicalName(), method.getName(), params);
+                        ex.toString(), method.getDeclaringClass().getCanonicalName(), method.getName(), params);
             }
         };
     }

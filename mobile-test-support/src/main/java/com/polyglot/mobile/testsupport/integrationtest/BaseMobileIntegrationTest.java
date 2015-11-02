@@ -16,7 +16,7 @@ import org.springframework.test.context.transaction.TransactionalTestExecutionLi
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {MobileTestSupportConfig.class})
-@ActiveProfiles({"DEV","integration-test"})
+@ActiveProfiles({"DEV", "integration-test"})
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class, TransactionalTestExecutionListener.class})
 @Rollback(value = true)
 public abstract class BaseMobileIntegrationTest {

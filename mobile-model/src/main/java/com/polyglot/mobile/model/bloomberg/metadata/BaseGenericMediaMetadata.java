@@ -1,15 +1,16 @@
 package com.polyglot.mobile.model.bloomberg.metadata;
 
-import com.polyglot.mobile.model.bloomberg.metadata.article.LedeMetadata;
 import com.polyglot.mobile.model.bloomberg.metadata.article.SeoMetadata;
 import com.polyglot.mobile.model.bloomberg.metadata.article.SocialMetadata;
 import lombok.Data;
+
+import java.util.List;
 
 /**
  * Created by Rajiv Singla on 11/1/2015.
  */
 @Data
-public abstract class BaseGenericMediaMetadata implements GenericMediaMetadata {
+public abstract class BaseGenericMediaMetadata<T extends DiffMetaData> implements GenericMediaMetadata {
 
     private Integer flowcmsId;
     private String thumbnail;
@@ -18,9 +19,9 @@ public abstract class BaseGenericMediaMetadata implements GenericMediaMetadata {
     private Boolean googleStandout;
     private SocialMetadata social;
     private String ledeTreatment;
-    private LedeMetadata lede;
     private String adCode;
     private Boolean disableAds;
     private Boolean suppressRecirc;
+    private List<T> diff;
 
 }

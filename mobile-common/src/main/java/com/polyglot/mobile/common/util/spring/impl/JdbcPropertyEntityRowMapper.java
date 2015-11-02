@@ -21,7 +21,7 @@ public class JdbcPropertyEntityRowMapper implements RowMapper<JdbcPropertyEntity
         final String propertyName = rs.getString("APP_PROPERTY_KEY");
         final String propertyValue = rs.getString("APP_PROPERTY_VALUE");
 
-        if(appEnvironment == null) {
+        if (appEnvironment == null) {
             String errorMessage = "Unable to find App Environments with database returned App Environment Name string: " + appEnvironmentName;
             log.error(errorMessage);
             throw new InvalidAppEnvironmentException(errorMessage);

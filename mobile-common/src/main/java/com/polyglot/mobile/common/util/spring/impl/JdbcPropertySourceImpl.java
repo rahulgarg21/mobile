@@ -28,17 +28,17 @@ import static com.polyglot.mobile.common.MobileConstants.PROPS_CACHE_DURATION_SE
 @Slf4j
 public class JdbcPropertySourceImpl extends PropertySource<DataSource> implements JdbcPropertySource {
 
-    private final RemovalListener<AppEnvironment, Map<String,String>> propertyCacheRemovalListener =
-            new RemovalListener<AppEnvironment,Map<String,String>>() {
+    private final RemovalListener<AppEnvironment, Map<String, String>> propertyCacheRemovalListener =
+            new RemovalListener<AppEnvironment, Map<String, String>>() {
                 @Override
-                public void onRemoval(final RemovalNotification<AppEnvironment, Map<String,String>> notification) {
+                public void onRemoval(final RemovalNotification<AppEnvironment, Map<String, String>> notification) {
                     log.debug("Property Cache Eviction Notification Triggered due to eviction of: {}:{}",
-                            notification.getKey(),notification.getValue());
+                            notification.getKey(), notification.getValue());
                     loadPropertyCache();
                 }
             };
 
-    private final Cache<AppEnvironment,Map<String,String>> propertyCache = CacheBuilder.newBuilder()
+    private final Cache<AppEnvironment, Map<String, String>> propertyCache = CacheBuilder.newBuilder()
             .expireAfterAccess(PROPS_CACHE_DURATION_SECONDS, TimeUnit.SECONDS)
             .removalListener(propertyCacheRemovalListener)
             .build();
@@ -68,7 +68,7 @@ public class JdbcPropertySourceImpl extends PropertySource<DataSource> implement
         checkState(currentAppEnvironmentProps != null, "Cache must contain currentAppEnvironment " + currentAppEnvironment.name());
 
         final String currentEnvironmentValue = currentAppEnvironmentProps.get(name);
-        if(currentEnvironmentValue != null) {
+        if (currentEnvironmentValue != null) {
             log.debug("Found Property Key: {} in App Environment: {}", name, currentAppEnvironment.name());
             return currentEnvironmentValue;
         }
@@ -77,7 +77,7 @@ public class JdbcPropertySourceImpl extends PropertySource<DataSource> implement
         checkState(defaultAppEnvironmentProps != null, "Cache must contain defaultAppEnvironment " + DEFAULT_PROPS_ENVIRONMENT.name());
 
         final String defaultPropertyValue = defaultAppEnvironmentProps.get(name);
-        if(defaultPropertyValue != null) {
+        if (defaultPropertyValue != null) {
             log.debug("Found Property Key: {} in Default App Environment: {}", name, DEFAULT_PROPS_ENVIRONMENT.name());
         }
 
@@ -97,12 +97,12 @@ public class JdbcPropertySourceImpl extends PropertySource<DataSource> implement
                 for (JdbcPropertyEntity jdbcPropertyEntity : jdbcPropertyEntityList) {
                     final AppEnvironment dbAppEnvironment = jdbcPropertyEntity.getAppEnvironment();
                     final Map<String, String> cachedAppEnvironmentProps = propertyCache.getIfPresent(dbAppEnvironment);
-                    if(cachedAppEnvironmentProps != null) {
-                        cachedAppEnvironmentProps.put(jdbcPropertyEntity.getPropertyKey(),jdbcPropertyEntity.getPropertyValue());
+                    if (cachedAppEnvironmentProps != null) {
+                        cachedAppEnvironmentProps.put(jdbcPropertyEntity.getPropertyKey(), jdbcPropertyEntity.getPropertyValue());
                     } else {
                         final HashMap<String, String> newPropertiesMap = new HashMap<>();
                         newPropertiesMap.put(jdbcPropertyEntity.getPropertyKey(), jdbcPropertyEntity.getPropertyValue());
-                        propertyCache.put(dbAppEnvironment,newPropertiesMap);
+                        propertyCache.put(dbAppEnvironment, newPropertiesMap);
                     }
                 }
                 log.debug("Finished loading Properites Cache. Time taken: {}", stopwatch.stop());
@@ -111,7 +111,7 @@ public class JdbcPropertySourceImpl extends PropertySource<DataSource> implement
     }
 
     @Override
-    public Map<AppEnvironment,Map<String, String>> getAllCachedProperties() {
+    public Map<AppEnvironment, Map<String, String>> getAllCachedProperties() {
         return propertyCache.asMap();
     }
 
