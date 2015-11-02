@@ -22,7 +22,7 @@ public class VideoMediaAttachmentMixinTest extends BaseMixinTest {
     final String jsonFileLocation = "data/attachment/video/video-media-attachment.json";
 
     @Test
-    public void testVideoMediaAttachmentDeserialization() throws Exception {
+    public void testVideoMediaAttachmentJsonConversion() throws Exception {
         final VideoMediaAttachment videoMediaAttachment = deserializeJsonFileToModel(
                 jsonFileLocation,
                 VideoMediaAttachment.class);

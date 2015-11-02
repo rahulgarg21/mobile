@@ -1,0 +1,45 @@
+{
+  "topics": [
+    {
+      "id": "iowa",
+      "name": "Iowa",
+      "score": 5.6969957902794
+    },
+    {
+      "id": "law",
+      "name": "Law",
+      "score": 1.843570608496
+    },
+    {
+      "id": "iraq-war",
+      "name": "Iraq War",
+      "score": 1.2543053960964
+    },
+    {
+      "id": "vermont",
+      "name": "Vermont",
+      "score": 0.98823191733639
+    },
+    {
+      "id": "democrats",
+      "name": "Democrats",
+      "score": 0.82950631458094
+    },
+    {
+      "id": "msnbc",
+      "name": "MSNBC",
+      "score": 0.54707233065442
+    },
+    {
+      "id": "gold",
+      "name": "Gold",
+      "score": 0.24110218140069
+    }
+  ],
+  "labels": [
+    {
+      "id": "the-democratic-primary",
+      "name": "The Democratic Primary"
+    }
+  ]
+}

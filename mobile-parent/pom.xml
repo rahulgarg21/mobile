@@ -51,6 +51,7 @@
         <hibernate.jpa.version>1.0.1.Final</hibernate.jpa.version>
         <validation.api.verion>1.1.0.Final</validation.api.verion>
         <jackson.json.version>2.6.2</jackson.json.version>
+        <jackson.joda.version>2.4.0</jackson.joda.version>
         <jackson.xml.version>2.5.3</jackson.xml.version>
         <woodstox.version>4.4.1</woodstox.version>
         <jstl.version>1.2</jstl.version>
@@ -65,6 +66,7 @@
         <dbunit.version>2.5.1</dbunit.version>
         <dbunit.spring.version>1.2.1</dbunit.spring.version>
         <jsonassert.version>1.2.3</jsonassert.version>
+        <hamcrest.junit.version>2.0.0.0</hamcrest.junit.version>
         <!-- INTEGRATION TEST SETTINGS-->
         <jetty.version>9.3.5.v20151012</jetty.version>
         <jetty.server.port>8889</jetty.server.port>
@@ -641,6 +643,11 @@
                 <artifactId>jackson-datatype-jsr310</artifactId>
                 <version>${jackson.json.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.datatype</groupId>
+                <artifactId>jackson-datatype-joda</artifactId>
+                <version>${jackson.joda.version}</version>
+            </dependency>
 
             <!-- JACKSON XML -->
             <dependency>
@@ -660,6 +667,13 @@
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-junit</artifactId>
+                <version>${hamcrest.junit.version}</version>
                 <scope>test</scope>
             </dependency>
 

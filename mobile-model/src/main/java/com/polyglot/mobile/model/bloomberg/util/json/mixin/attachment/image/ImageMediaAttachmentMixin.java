@@ -1,6 +1,7 @@
 package com.polyglot.mobile.model.bloomberg.util.json.mixin.attachment.image;
 
 import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.polyglot.mobile.model.bloomberg.attachment.MediaAttachmentType;
 import com.polyglot.mobile.model.bloomberg.attachment.image.ImageDetail;
 
@@ -18,8 +19,8 @@ public abstract class ImageMediaAttachmentMixin {
     @JsonAnyGetter
     public abstract Map<String,ImageDetail> getImageDetails();
 
-    @JsonProperty("_expanded")
-    private boolean _expanded;
+    @JsonInclude(Include.NON_NULL)
+    private Boolean _expanded;
 
     @JsonIgnore
     public abstract MediaAttachmentType getType();

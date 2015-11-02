@@ -1,0 +1,162 @@
+{
+  "attachments": {
+    "image": {
+      "242074016": {
+        "baseUrl": "http://assets.bwbx.io/images/iY_8wtPRpXIs/v1/-1x-1.jpg",
+        "title": "Democratic Presidential Candidates Attend Iowa Jefferson-Jackson Dinner",
+        "description": "DES MOINES, IA - OCTOBER 24: Democratic presidential candidates Hillary Clinton, Senator Bernie Sanders (I-VT), and Martin O'Malley are introduced at the Jefferson-Jackson dinner on October 24, 2015 in Des Moines, Iowa. The dinner is a major fundraiser for Iowa's Democratic Party. (Photo by Scott Olson/Getty Images)",
+        "origWidth": 2310,
+        "images": {
+          "-1x-1": {
+            "id": "dynamic",
+            "height": "-1",
+            "width": "-1",
+            "sizeType": "1000",
+            "url": [
+              "http://assets.bwbx.io/images/iY_8wtPRpXIs/v1/-1x-1.jpg"
+            ]
+          },
+          "765x430": {
+            "id": "242074220",
+            "height": "430",
+            "width": "765",
+            "sizeType": "63",
+            "url": [
+              "http://assets.bwbx.io/images/iY_8wtPRpXIs/v1/765x430.jpg"
+            ]
+          },
+          "620x349": {
+            "id": "242074224",
+            "height": "349",
+            "width": "620",
+            "sizeType": "34",
+            "url": [
+              "http://assets.bwbx.io/images/iY_8wtPRpXIs/v1/620x349.jpg"
+            ]
+          },
+          "400x225": {
+            "id": "242074214",
+            "height": "225",
+            "width": "400",
+            "sizeType": "18",
+            "url": [
+              "http://assets.bwbx.io/images/iY_8wtPRpXIs/v1/400x225.jpg"
+            ]
+          },
+          "220x220": {
+            "id": "242074222",
+            "height": "220",
+            "width": "220",
+            "sizeType": "29",
+            "url": [
+              "http://assets.bwbx.io/images/iY_8wtPRpXIs/v1/220x220.jpg"
+            ]
+          }
+        }
+      },
+      "_expanded": true
+    },
+    "video": {
+
+    }
+  },
+  "credits": {
+    "author": [
+      {
+        "fullName": "Jennifer Epstein",
+        "id": "19048099",
+        "slug": "ASKmo1LEDZ4/jennifer-epstein"
+      }
+    ]
+  },
+  "curatedAt": "2015-10-25T15:14:33.000Z",
+  "headline": "At Key Iowa Dinner, Bernie Sanders Sharply Criticizes Hillary Clinton's Record",
+  "headlines": {
+    "web": "At Key Iowa Dinner, Bernie Sanders Sharply Criticizes Hillary Clinton's Record"
+  },
+  "id": "NWRDJH6JTSE801",
+  "metadata": {
+    "flowcmsId": 242434,
+    "thumbnail": "242074016",
+    "background": "white",
+    "seo": {
+      "headline": ""
+    },
+    "googleStandout": false,
+    "social": {
+      "twitterText": "",
+      "headline": "",
+      "description": "",
+      "image": 0
+    },
+    "ledeTreatment": "default_bg",
+    "lede": {
+      "type": "image",
+      "id": 242074016,
+      "size": "small",
+      "caption": "<p>Democratic presidential candidates Hillary Clinton, Senator Bernie Sanders, and Martin O'Malley are introduced at the Jefferson-Jackson dinner on October 24, 2015 in Des Moines, Iowa.</p>\n",
+      "credit": "Photographer: Scott Olson/Getty Images"
+    },
+    "adCode": "",
+    "disableAds": false,
+    "suppressRecirc": false
+  },
+  "publishedAt": "2015-10-25T04:23:41.236Z",
+  "quote": {
+    "text": "",
+    "credit": "",
+    "hideOnSingle": false
+  },
+  "shortUrl": "http://bloom.bg/1jHyMg8",
+  "slug": "2015-10-25/at-key-iowa-dinner-bernie-sanders-goes-for-hillary-clinton-s-jugular",
+  "summary": "Like Obama eight years ago, Sanders sought to knock down Clinton's current positions with reminders of where she first stood on the issues.",
+  "tags": {
+    "topics": [
+      {
+        "id": "iowa",
+        "name": "Iowa",
+        "score": 5.6969957902794
+      },
+      {
+        "id": "law",
+        "name": "Law",
+        "score": 1.843570608496
+      },
+      {
+        "id": "iraq-war",
+        "name": "Iraq War",
+        "score": 1.2543053960964
+      },
+      {
+        "id": "vermont",
+        "name": "Vermont",
+        "score": 0.98823191733639
+      },
+      {
+        "id": "democrats",
+        "name": "Democrats",
+        "score": 0.82950631458094
+      },
+      {
+        "id": "msnbc",
+        "name": "MSNBC",
+        "score": 0.54707233065442
+      },
+      {
+        "id": "gold",
+        "name": "Gold",
+        "score": 0.24110218140069
+      }
+    ],
+    "labels": [
+      {
+        "id": "the-democratic-primary",
+        "name": "The Democratic Primary"
+      }
+    ]
+  },
+  "type": "article",
+  "updatedAt": "2015-10-25T23:59:02.479Z",
+  "url": "http://www.bloomberg.com/politics/articles/2015-10-25/at-key-iowa-dinner-bernie-sanders-goes-for-hillary-clinton-s-jugular",
+  "primarySite": "bpol"
+}

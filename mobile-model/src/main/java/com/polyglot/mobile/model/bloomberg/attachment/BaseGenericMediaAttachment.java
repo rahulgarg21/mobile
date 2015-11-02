@@ -1,5 +1,7 @@
 package com.polyglot.mobile.model.bloomberg.attachment;
 
+import com.polyglot.mobile.model.bloomberg.attachment.image.ImageMediaAttachment;
+import com.polyglot.mobile.model.bloomberg.attachment.video.VideoMediaAttachment;
 import lombok.Data;
 
 /**

@@ -18,7 +18,7 @@ public class ImageDetailMixinTest extends BaseMixinTest {
     final String jsonFileLocation = "data/attachment/image/image-details.json";
 
     @Test
-    public void testImageDetailDeserialization() throws Exception {
+    public void testImageDetailJsonConversion() throws Exception {
 
         final ImageDetail imageDetail = deserializeJsonFileToModel(jsonFileLocation, ImageDetail.class);
         final Map<String, Image> images = imageDetail.getImages();

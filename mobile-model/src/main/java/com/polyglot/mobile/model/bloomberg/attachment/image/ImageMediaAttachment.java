@@ -16,7 +16,7 @@ import java.util.Map;
 public class ImageMediaAttachment extends BaseGenericMediaAttachment {
 
     private Map<String, ImageDetail> imageDetails = new LinkedHashMap<>();
-    private boolean _expanded;
+    private Boolean _expanded;
 
     @Override
     public MediaAttachmentType getType() {

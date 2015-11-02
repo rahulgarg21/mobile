@@ -15,7 +15,7 @@ public class ImageMixinTest extends BaseMixinTest{
     final String jsonFileLocation = "data/attachment/image/image.json";
 
     @Test
-    public void testImageDeserialization() throws Exception {
+    public void testImageJsonConversion() throws Exception {
         final String id = "dynamic";
         final String height = "-1";
         final String width = "-1";

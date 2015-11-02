@@ -1,0 +1,203 @@
+{
+  "attachments": {
+    "image": {
+      "241691358": {
+        "baseUrl": "http://assets.bwbx.io/images/ibCZZEVeeFjE/v1/-1x-1.jpg",
+        "title": "RNC 2012",
+        "description": "",
+        "caption": "Mike Murphy speaks during a panel discussion on the sidelines of the Republican National Convention in Tampa, Florida, on Aug. 26, 2012.",
+        "credit": "Photographer: Andrew Harrer/Bloomberg",
+        "origWidth": 1500,
+        "images": {
+          "-1x-1": {
+            "id": "dynamic",
+            "height": "-1",
+            "width": "-1",
+            "sizeType": "1000",
+            "url": [
+              "http://assets.bwbx.io/images/ibCZZEVeeFjE/v1/-1x-1.jpg"
+            ]
+          },
+          "765x430": {
+            "id": "241691838",
+            "height": "430",
+            "width": "765",
+            "sizeType": "63",
+            "url": [
+              "http://assets.bwbx.io/images/ibCZZEVeeFjE/v1/765x430.jpg"
+            ]
+          },
+          "620x349": {
+            "id": "241691856",
+            "height": "349",
+            "width": "620",
+            "sizeType": "34",
+            "url": [
+              "http://assets.bwbx.io/images/ibCZZEVeeFjE/v1/620x349.jpg"
+            ]
+          },
+          "400x225": {
+            "id": "241691826",
+            "height": "225",
+            "width": "400",
+            "sizeType": "18",
+            "url": [
+              "http://assets.bwbx.io/images/ibCZZEVeeFjE/v1/400x225.jpg"
+            ]
+          },
+          "220x220": {
+            "id": "241691858",
+            "height": "220",
+            "width": "220",
+            "sizeType": "29",
+            "url": [
+              "http://assets.bwbx.io/images/ibCZZEVeeFjE/v1/220x220.jpg"
+            ]
+          }
+        }
+      },
+      "241691508": {
+        "baseUrl": "http://assets.bwbx.io/images/iW_hb6In1eY4/v1/-1x-1.jpg",
+        "title": "BUSH IOWA",
+        "description": "",
+        "origWidth": 1425,
+        "images": {
+          "-1x-1": {
+            "id": "dynamic",
+            "height": "-1",
+            "width": "-1",
+            "sizeType": "1000",
+            "url": [
+              "http://assets.bwbx.io/images/iW_hb6In1eY4/v1/-1x-1.jpg"
+            ]
+          },
+          "765x430": {
+            "id": "241691862",
+            "height": "430",
+            "width": "765",
+            "sizeType": "63",
+            "url": [
+              "http://assets.bwbx.io/images/iW_hb6In1eY4/v1/765x430.jpg"
+            ]
+          },
+          "620x349": {
+            "id": "241691860",
+            "height": "349",
+            "width": "620",
+            "sizeType": "34",
+            "url": [
+              "http://assets.bwbx.io/images/iW_hb6In1eY4/v1/620x349.jpg"
+            ]
+          },
+          "400x225": {
+            "id": "241691678",
+            "height": "225",
+            "width": "400",
+            "sizeType": "18",
+            "url": [
+              "http://assets.bwbx.io/images/iW_hb6In1eY4/v1/400x225.jpg"
+            ]
+          },
+          "220x220": {
+            "id": "241691808",
+            "height": "220",
+            "width": "220",
+            "sizeType": "29",
+            "url": [
+              "http://assets.bwbx.io/images/iW_hb6In1eY4/v1/220x220.jpg"
+            ]
+          }
+        }
+      },
+      "_expanded": true
+    },
+    "video": {
+
+    }
+  },
+  "credits": {
+    "author": [
+      {
+        "fullName": "Sasha Issenberg",
+        "id": "15305833",
+        "slug": "AOmMaaYdnUc/sasha-issenberg"
+      }
+    ]
+  },
+  "curatedAt": "2015-10-23T10:28:00.000Z",
+  "headline": "Why Mike Murphy Says Jeb Bush Is Still the One to Beat",
+  "headlines": {
+    "web": "Interview With Mike Murphy of Pro-Jeb Bush Super-PAC Right to Rise Part 1"
+  },
+  "id": "NWIH0M6JTSEA01",
+  "metadata": {
+    "flowcmsId": 239306,
+    "background": "white",
+    "seo": {
+      "headline": "Interview With Mike Murphy of Pro-Jeb Bush Super-PAC Right to Rise Part 1"
+    },
+    "googleStandout": false,
+    "social": {
+      "twitterText": "",
+      "headline": "",
+      "description": "",
+      "image": 0
+    },
+    "ledeTreatment": "default_bg",
+    "lede": {
+      "type": "image",
+      "id": 241691508,
+      "size": "small",
+      "caption": "",
+      "credit": "Photographer: Daniel Acker/Bloomberg"
+    },
+    "adCode": "",
+    "disableAds": false,
+    "suppressRecirc": false
+  },
+  "publishedAt": "2015-10-20T09:00:22.055Z",
+  "quote": {
+    "text": "Trump is “dead politically, he'll never be president of the United States, ever.”",
+    "credit": "Mike Murphy",
+    "hideOnSingle": false
+  },
+  "shortUrl": "http://bloom.bg/1LHPYME",
+  "slug": "2015-10-20/mike-murphy-of-right-to-rise-explains-his-theory-that-jeb-bush-is-still-the-candidate-to-beat",
+  "summary": "Donald Trump, Murphy says, is a “zombie front-runner.” And the punditocracy pays much too much attention to polls. Part one of a frank Q&amp;A with the man who runs Bush's super-PAC.",
+  "tags": {
+    "topics": [
+      {
+        "id": "2016",
+        "name": "2016"
+      },
+      {
+        "id": "campaign-finance",
+        "name": "Campaign Finance"
+      },
+      {
+        "id": "jeb-bush",
+        "name": "Jeb Bush"
+      },
+      {
+        "id": "media",
+        "name": "Media",
+        "score": 5.0645613083943
+      },
+      {
+        "id": "florida",
+        "name": "Florida",
+        "score": 1.8727297370561
+      }
+    ],
+    "labels": [
+      {
+        "id": "q-a",
+        "name": "Q&A"
+      }
+    ]
+  },
+  "type": "feature",
+  "updatedAt": "2015-10-21T11:10:49.061Z",
+  "url": "http://www.bloomberg.com/politics/features/2015-10-20/mike-murphy-of-right-to-rise-explains-his-theory-that-jeb-bush-is-still-the-candidate-to-beat",
+  "primarySite": "bpol"
+}

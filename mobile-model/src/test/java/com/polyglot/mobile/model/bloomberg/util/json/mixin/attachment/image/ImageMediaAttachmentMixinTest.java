@@ -20,7 +20,7 @@ public class ImageMediaAttachmentMixinTest extends BaseMixinTest {
     final String jsonFileLocation = "data/attachment/image/image-media-attachment.json";
 
     @Test
-    public void testImageMediaAttachmentDeserialization() throws Exception {
+    public void testImageMediaAttachmentJsonConversion() throws Exception {
         final ImageMediaAttachment imageMediaAttachment = deserializeJsonFileToModel(
                 jsonFileLocation,
                 ImageMediaAttachment.class);

@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * Created by Rajiv Singla on 11/1/2015.
  */
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class VideoMediaAttachment extends BaseGenericMediaAttachment {
 

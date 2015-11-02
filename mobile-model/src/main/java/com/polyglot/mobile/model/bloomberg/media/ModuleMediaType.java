@@ -5,8 +5,19 @@ package com.polyglot.mobile.model.bloomberg.media;
  */
 public enum ModuleMediaType {
 
-    ARTICLE,
-    TRACKER
+    ARTICLE("article"),
+    TRACKER("tracker"),
+    FEATURE("feature");
+
+    private String description;
+
+    private ModuleMediaType(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
 
 
 }
